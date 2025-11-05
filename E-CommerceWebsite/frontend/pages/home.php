@@ -10,7 +10,8 @@
 
 </head>
 <body>
-    <?php include "E-CommerceWebsite/backend/globals/header.php"; ?>
+    <!-- Escape characters are a trial by fire, im glad I remembered regex, the \xammp was not reading as \xamp but just mmp, used a \\ double and it worked. -->
+    <?php include "C:\\xampp\htdocs\Final Project PHPCSS\E-CommerceWebsite\backend\globals\header.php"; ?>
 
     <main>
         <section id = "hero">
@@ -19,7 +20,7 @@
                
     </main>
 
-    <?php include "E-CommerceWebsite/backend/globals/footer.php"; ?>
+    <?php include "C:\\xampp\htdocs\Final Project PHPCSS\E-CommerceWebsite\backend\globals\\footer.php" ?>
 
 </body>
 </html>
