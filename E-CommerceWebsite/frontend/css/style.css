@@ -1,9 +1,11 @@
 :root {
 
-  
+
  --bgColor: #0F0F0F;
+ /* --bgColorEerieBlack: #191716;  To be determined. */
  --textColor: #FAFAFF;
  --btnColorBase: #273469;
+ /* --btnColorBase: #0A122A; Oxford Blue TBD */
  --btnColorHover: #1E2749;
 
 
