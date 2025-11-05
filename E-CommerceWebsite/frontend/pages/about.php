@@ -13,7 +13,7 @@
     <?php include "C:\\xampp\htdocs\Final Project PHPCSS\E-CommerceWebsite\backend\globals\header.php"; ?>
     <main>
         <section>
-            
+             
         </section>       
     </main>
 
