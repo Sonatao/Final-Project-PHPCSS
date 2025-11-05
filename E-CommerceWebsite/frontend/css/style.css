@@ -1,5 +1,12 @@
 :root {
 
+  
+ --bgColor: #0F0F0F;
+ --textColor: #FAFAFF;
+ --btnColorBase: #273469;
+ --btnColorHover: #1E2749;
+
+
 }
 
 * {

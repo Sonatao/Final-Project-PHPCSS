@@ -13,10 +13,9 @@
     <?php include "E-CommerceWebsite/backend/globals/header.php"; ?>
 
     <main>
-        <section id = "hero">
+        <section>
             
-        </section>
-               
+        </section>       
     </main>
 
     <?php include "E-CommerceWebsite/backend/globals/footer.php"; ?>
