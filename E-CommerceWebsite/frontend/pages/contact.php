@@ -13,7 +13,10 @@
     <?php include "C:\\xampp\htdocs\Final Project PHPCSS\E-CommerceWebsite\backend\globals\header.php"; ?>
 
     <main>
-        <section>
+        <section id = "contactPage">
+            <h2> Contact Us </h2>
+            
+
             
         </section>       
     </main>
