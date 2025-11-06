@@ -20,16 +20,16 @@
              have it link back to the register page.  -->
         </section>
 
-        <section class = "featureCards">
+        <section id = "featureCards">
             <!-- Think of the amazon featured cards, rebuild and add here , keep clean and consistent, but make them a bit larger, center text, etc. Each card, 
              should link to a dedicated shop page for that item, think amazon.  -->
         </section>
 
-        <section class = "featureCarousel">
+        <section id = "featureCarousel">
             <!-- Can be reused. Create carousel here that features all the featured products. Each product links back to it's own page. -->
         </section>
 
-        <section class = "fireSale">
+        <section id = "fireSale">
             <!-- Reuse the feature cards but swap it up, instead of individual items as in feature cards, use industries, ie, "Tech", "Outdoors" etc, 
              for the cards title and interior clickable images that will link to the page with that being displayed. -->
         </section>
