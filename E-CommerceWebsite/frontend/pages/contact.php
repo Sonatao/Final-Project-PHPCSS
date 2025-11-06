@@ -18,7 +18,8 @@
         </section>       
     </main>
 
-    <?php include "E-CommerceWebsite/backend/globals/footer.php"; ?>
+        <?php include "C:\\xampp\htdocs\Final Project PHPCSS\E-CommerceWebsite\backend\globals\\footer.php" ?>
+
 
 </body>
 </html>

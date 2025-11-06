@@ -7,8 +7,9 @@ require_once ("../config.php");
 // Create Stuff Below 
 
 $sql = "CREATE DATABASE IF NOT EXISTS Commerce";
+
 if($conn->query($sql)) {
-     echo "Database created "
+     echo "Database created";
 } else {
     echo "Error, Database Could not be Created: " . $conn->error;
 };
