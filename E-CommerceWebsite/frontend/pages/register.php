@@ -16,13 +16,13 @@
            <section id = "registrationForm">
             <h1> Registration </h1>
 
-            <label for="email">Email</label>
+            <label for="email">Email:</label>
             <input type="text" placeholder="Enter Email" name="email" id="email" required>
 
-            <label for="password">Password</label>
+            <label for="password">Password:</label>
             <input type="password" placeholder="Enter Password" name="password" id="password" required>
 
-            <label for="repeatPassword">Repeat Password</label>
+            <label for="repeatPassword">Repeat Password:</label>
             <input type="password" placeholder="Repeat Password" name="repeatPassword" id="repeatPassword">
         
             <button type="Submit">Login</button>

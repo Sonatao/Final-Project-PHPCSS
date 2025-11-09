@@ -18,10 +18,10 @@
           <section id = "registrationForm">
             <h1> Sign In </h1>
 
-            <label for="email">Email</label>
+            <label for="email">Email: </label>
             <input type="text" placeholder="Enter Email" name="email" id="email" required>
 
-            <label for="password">Password</label>
+            <label for="password">Password: </label>
             <input type="password" placeholder="Enter Password" name="password" id="password" required>
 
             <button type="Submit">Login</button>
