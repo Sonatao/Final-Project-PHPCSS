@@ -12,14 +12,21 @@
 --boxShadow: rgba(207, 207, 205, 0.242);
 --formInside: rgb(189, 189, 189);
 /* -------------- Box Sizing Variables -------------- */
---padSm: ;
---padMd: ;
---padLr: ;
+--padSm: 1rem;
+--padMd: 3rem;
+--padLr: 5rem;
 
---marSm: ;
---marMd: ;
---marLr: ;
+--marSm: 1rem;
+--marMd: 3rem;
+--marLr: 5rem;
 
+/* -------------- Font Size Variables -------------- */
+
+--fontXsm: 0.1rem ;
+--fontSm: 0.5rem ;
+--fontMd: 1rem;
+--fontLr: 2rem;
+--fontExLr: 5rem;
 
 }
 
@@ -88,6 +95,56 @@ a {
   color: var(--btnBgColor);
 }
 
+/* -------------- Header Styling > HamBurger Menu -------------- */
+
+.sideNav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: var(--bgColorLight) ;
+  overflow-x: hidden;
+  padding-top: 5rem;
+  transition: 0.3s ease;
+  opacity: 0.9;
+}
+
+.sideNav > a { 
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  padding: 1rem;
+  font-size: var(--fontLr);
+  color: var(--textColor);
+  display: block;
+  transition: 0.3s ease;
+  margin-left: var(--marSm);
+}
+
+.sideNav a:hover {
+  color: var(--focusColorDark);
+}
+
+.sideNav .closeButton {
+  position: absolute;
+  top: 0;
+  right: var(--padSm);
+  font-size: var(--fontLr);
+  margin-left: var(--marMd);
+}
+
+.openSideNav {
+  color: var(--textColor);
+  font-size: var(--fontExLr);
+  padding-left: 1rem;
+  padding-right: 1rem;
+  height: 5rem;
+  margin: 0;
+}
+
 /* 
 -------------- Footer Styling --------------
   */
@@ -147,7 +204,7 @@ footer {
 -------------- Contact Page Styling --------------
  */
 
- 
+
 
 /* 
 -------------- Login/Register Page Styling --------------
