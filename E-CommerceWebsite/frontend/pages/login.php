@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name= "description" content="Clothing. Mens. Womens. Workers. Work. Boots. Shoes. Sandals. Top. Bottom. Tops. Bottoms.">
     <meta name="robots">
-    <link rel="stylesheet" href="E-CommerceWebsite/frontend/css/style.css"></link>
+    <link rel="stylesheet" href="/Final Project PHPCSS/E-CommerceWebsite/frontend/css/style.css"></link>
     <title>E-Commerce Website</title>
 
 </head>
@@ -13,7 +13,9 @@
     <?php include "C:\\xampp\htdocs\Final Project PHPCSS\E-CommerceWebsite\backend\globals\header.php"; ?>
 
     <main>
-        <section id = "registrationForm">
+
+        <form action="login.php" method="post">
+          <section id = "registrationForm">
             <h1> Sign In </h1>
 
             <label for="email">Email</label>
@@ -22,12 +24,15 @@
             <label for="password">Password</label>
             <input type="password" placeholder="Enter Password" name="password" id="password" required>
 
+            <button type="Submit">Login</button>
+            <button type="button">Cancel</button>
+            
+            <div id = "signInRedirect">
+                <p> Don't have an account yet? <a href="register.php"> Create an account </a></p>
+            </div>  
+            
         </section> 
-
-        <div id = "signInRedirect">
-            <p> Don't have an account yet? <a href="register.php"> Create an account </a></p>
-        </div>
-              
+        </form>
     </main>
 
         <?php include "C:\\xampp\htdocs\Final Project PHPCSS\E-CommerceWebsite\backend\globals\\footer.php" ?>

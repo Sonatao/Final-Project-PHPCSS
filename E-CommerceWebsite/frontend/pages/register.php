@@ -5,14 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name= "description" content="Clothing. Mens. Womens. Workers. Work. Boots. Shoes. Sandals. Top. Bottom. Tops. Bottoms.">
     <meta name="robots">
-    <link rel="stylesheet" href="E-CommerceWebsite/frontend/css/style.css"></link>
+    <link rel="stylesheet" href="/Final Project PHPCSS/E-CommerceWebsite/frontend/css/style.css"></link>
     <title>E-Commerce Website</title>
 
 </head>
 <body>
     <?php include "C:\\xampp\htdocs\Final Project PHPCSS\E-CommerceWebsite\backend\globals\header.php"; ?>
     <main>
-        <section id = "registrationForm">
+        <form action="register.php" method="post">
+           <section id = "registrationForm">
             <h1> Registration </h1>
 
             <label for="email">Email</label>
@@ -23,11 +24,18 @@
 
             <label for="repeatPassword">Repeat Password</label>
             <input type="password" placeholder="Repeat Password" name="repeatPassword" id="repeatPassword">
-        </section> 
         
+            <button type="Submit">Login</button>
+            <button type="button">Cancel</button>
+            
         <div id="signInRedirect">
             <p> Already have an account? <a href="login.php"> Sign In </a></p>
-        </div>
+        </div> 
+        </section> 
+        
+        
+        </form>
+        
     </main>
     <?php include "C:\\xampp\htdocs\Final Project PHPCSS\E-CommerceWebsite\backend\globals\\footer.php" ?>
 </body>

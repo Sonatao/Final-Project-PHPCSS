@@ -1,25 +1,66 @@
 :root {
 
 
- --bgColor: #0F0F0F;
+ --bgColor: #14171A;
  /* --bgColorEerieBlack: #191716;  To be determined. */
- --textColor: #FAFAFF;
- --btnColorBase: #273469;
+ --textColor: #E1E8ED;
+ --btnColorBase: #1DA1F2;
  /* --btnColorBase: #0A122A; Oxford Blue TBD */
- --btnColorHover: #1E2749;
+ --btnColorHover: #293561;
 
+ 
 
+}
+
+body {
+  background-color: var(--bgColor);
 }
 
 * {
     margin: 0;
     padding: 0;
+    text-decoration: none;
 }
 
 /* 
 Header Styling
   */
+.header {
+ display: flex;
+ align-items: center;
+ justify-content: space-evenly;
+ width: 100%;
+ height: auto;
+ /* Add box shadow here later if applicable. */
+}
 
+.header > nav {
+  display: flex;
+  width: 100%;
+  height: auto;
+}
+
+.headerItems {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  height: 5rem;
+  gap: 8rem;
+  background-color: var(--bgColor);
+}
+
+.headerItems > a {
+  color: var(--textColor);
+  padding: 1rem;
+  background-color: var(--btnColorHover);
+  border-radius: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.headerItems > a:hover {
+  background-color: var(--btnColorBase);
+}
 
 /* 
 Footer Styling
@@ -44,7 +85,56 @@ Contact Us Page Styling
 /* 
 Login Page Styling
  */
+ form {
+  height: 100vh;
+  background-color: var();
+  width: 100%;
+  border-radius: 1rem;
+  padding-bottom: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ }
 
+ input[type=text], input[type=password] {
+  width: 20%;
+  padding: 0.5rem 0.5rem;
+  margin: 0.5rem 0;
+  margin-top: 1.2rem;
+  display: inline-block;
+  border: 0.3rem solid var(--textColor);
+  box-sizing: border-box;
+  align-content: center;
+ }
+
+ button {
+  background-color: var(--btnColorHover);
+  color: var(--textColor);
+  padding: 1rem;
+  margin: 0.5rem 0;
+  margin-top: 1.2rem;
+  border: none;
+  cursor: pointer;
+  width: 20%;
+  transition: 0.3s ease;
+
+ }
+
+ button:hover {
+  opacity: 0.8;
+ }
+
+#registrationForm {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 5rem;
+  background-color: var(--bgColor);
+  color: var(--textColor);
+  margin-top: 0.5rem;
+  width: 100%;
+ 
+}
 /* 
 Register Page Styling
   */

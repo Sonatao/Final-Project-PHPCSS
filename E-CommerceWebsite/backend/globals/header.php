@@ -1,7 +1,7 @@
-<link rel="stylesheet" href="E-CommerceWebsite/frontend/css/style.css">
-<header>
+<link rel="stylesheet" href="/Final Project PHPCSS/E-CommerceWebsite/frontend/css/style.css"></link>
+<header class = "header">
         <nav>
-            <ul>
+            <ul class = "headerItems">
                 <a href="home.php"> Home </a>
                 <a href="shop.php"> Products </a>
                 <a href="about.php"> Cart </a>
