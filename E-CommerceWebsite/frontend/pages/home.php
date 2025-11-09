@@ -6,6 +6,7 @@
     <meta name= "description" content="Clothing. Mens. Womens. Workers. Work. Boots. Shoes. Sandals. Top. Bottom. Tops. Bottoms.">
     <meta name="robots">
     <link rel="stylesheet" href="/Final Project PHPCSS/E-CommerceWebsite/frontend/css/style.css"></link>
+    <script src="/Final Project PHPCSS/E-CommerceWebsite/frontend/jsAnimations/heroCarousel.js" defer></script>
     <title>E-Commerce Website</title>
 
 </head>
@@ -14,11 +15,41 @@
     <?php include "C:\\xampp\htdocs\Final Project PHPCSS\E-CommerceWebsite\backend\globals\header.php"; ?>
 
     <main>
-        <section id = "hero">
+        <section id = "heroCarousel">
             <!-- Add a Carousle here with random images pulled from database and a cta that sits on top. i.e, "Summer Sales!" or smth like that. Within the blurb 
              for summer sales, and the other titles, add a cta that says, "Make an account today, and get 10% off your first purchase" or something like that,
              have it link back to the register page.  -->
+                <div class ="heroSlides fade">
+                    <div class = "heroText">
+
+                    </div>
+
+                    <img src="/Final Project PHPCSS/E-CommerceWebsite/assets(temp)/TestImagePHPCSS.jpg" class = "heroImages">
+                </div>
+
+                <div class ="heroSlides fade">
+                    <div class = "heroText">
+
+                    </div>
+                    <img src="/Final Project PHPCSS/E-CommerceWebsite/assets(temp)/TestImagePHPCSS2.jpg" class = "heroImages">
+                </div>
+
+                <div class ="heroSlides fade">
+                    <div class = "heroText">
+
+                    </div>
+                    <img src="/Final Project PHPCSS/E-CommerceWebsite/assets(temp)/TestImagePHPCSS3.avif" class = "heroImages">
+                </div>
+
+                <a class = "previous" onclick="advanceSlides(-1)">&#10094;</a>
+                <a class = "next" onclick="advanceSlides(1)">&#10095;</a>
         </section>
+
+        <div class = "heroDots">
+            <span class="slideDot" onclick="currentSlide(1)"></span>
+            <span class="slideDot" onclick="currentSlide(2)"></span>
+            <span class="slideDot" onclick="currentSlide(3)"></span>
+        </div>
 
         <section id = "featureCards">
             <!-- Think of the amazon featured cards, rebuild and add here , keep clean and consistent, but make them a bit larger, center text, etc. Each card, 

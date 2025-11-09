@@ -4,10 +4,10 @@
     
 <div id= "SideNav" class="sideNav">
             <a href="javascript:void(0)" class="closeButton" onclick="closeNav()">&times;</a>
-            <a href="#">Shop</a>
-            <a href="#">Login</a>
-            <a href="#">Cart</a>
-            <a href="#">Contact</a>
+            <a href="shop.php">Shop</a>
+            <a href="login.php">Login</a>
+            <a href="contact.php">Contact</a>
+            <a href="about.php">About Us</a>
         </div>
         <span class = "openSideNav" onclick="openNav()">=</span>
 
@@ -15,7 +15,6 @@
             <ul class = "headerItems">
                 <a href="home.php"> Home </a>
                 <a href="shop.php"> Products </a>
-                <a href="about.php"> Cart </a>
                 <a href="contact.php"> Contact </a>
                 <a href="register.php"> Register </a>
                 <a href="login.php"> Login </a>
