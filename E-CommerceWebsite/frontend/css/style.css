@@ -1,11 +1,25 @@
 :root {
- --bgColor: #14171A;
- /* --bgColorEerieBlack: #191716;  To be determined. */
- --textColor: #E1E8ED;
- --btnColorBase:#293561 ;
- /* --btnColorBase: #0A122A; Oxford Blue TBD */
- --btnColorHover: #1DA1F2;
- --boxShadow: rgba(207, 207, 205, 0.842);
+
+/* -------------- Branding Colors -------------- */
+--textColor: #E1E8ED;
+--focusColorDark: #a8741ae1 ;
+--focusColorLight: #A8741A ;
+--bgColorLight: #292929 ;
+--bgColorDark: #242424 ;
+--btnBgColor:#212121;
+--btnColorHover: #E1E8ED;
+--btnTextHover: black;
+--boxShadow: rgba(207, 207, 205, 0.842);
+/* -------------- Box Sizing Variables -------------- */
+--padSm: ;
+--padMd: ;
+--padLr: ;
+
+--marSm: ;
+--marMd: ;
+--marLr: ;
+
+
 }
 
 body {
@@ -28,7 +42,7 @@ a {
 
 
 /* 
-Header Styling
+-------------- Header Styling --------------
   */
 
 .header {
@@ -40,6 +54,7 @@ Header Styling
  border-bottom: 0.1rem solid var(--boxShadow);
  box-shadow: 0 0 0.5rem var(--boxShadow); 
  position: sticky;
+ top: 0;
 }
 
 .header > nav {
@@ -71,7 +86,7 @@ Header Styling
 }
 
 /* 
-Footer Styling
+-------------- Footer Styling --------------
   */
 footer {
   display: grid;
@@ -113,23 +128,23 @@ footer {
 }
 
 /* 
-Home Page Styling
+-------------- Home Page Styling --------------
   */
 
 /* 
-Shop Page Styling
+-------------- Shop Page Styling --------------
   */
 
 /* 
-About Page Styling
+-------------- About Page Styling --------------
   */
 
 /* 
-Contact Us Page Styling
+-------------- Contact Page Styling --------------
  */
 
 /* 
-Login Page Styling
+-------------- Login/Register Page Styling --------------
  */
  form {
   height: 85vh;
@@ -185,6 +200,3 @@ Login Page Styling
   padding-bottom:1rem;
   box-shadow: 0 0 15px var(--boxShadow);
 }
-/* 
-Register Page Styling
-  */

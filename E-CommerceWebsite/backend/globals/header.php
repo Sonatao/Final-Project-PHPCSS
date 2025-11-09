@@ -10,4 +10,15 @@
                 <a href="login.php"> Login </a>
             </ul>
         </nav>
+
+        <div class="sideNav">
+            <a href="javascript:void(0)" class="closeButton" onclick="closeNav()">&times;</a>
+            <a href="#">Shop</a>
+            <a href="#">Login</a>
+            <a href="#">Cart</a>
+            <a href="#">Contact</a>
+        </div>
+
+        <span onclick="openNav()">open</span>
+        
     </header>
