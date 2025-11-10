@@ -10,13 +10,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Pirata+One&family=Quintessential&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css"></link>
     <script src="/Final Project PHPCSS/E-CommerceWebsite/frontend/jsAnimations/heroCarousel.js" defer></script>
+    <?php include "C:\\xampp\htdocs\Final Project PHPCSS\E-CommerceWebsite\backend\globals\header.php"; ?>
+    
     <title>E-Commerce Website</title>
 
 </head>
 <body>
     <!-- Escape characters are a trial by fire, im glad I remembered regex, the \xammp was not reading as \xamp but just mmp, used a \\ double and it worked. -->
-    <?php include "C:\\xampp\htdocs\Final Project PHPCSS\E-CommerceWebsite\backend\globals\header.php"; ?>
-
+    
     <main>
         <section id = "heroCarousel">
             <!-- Add a Carousle here with random images pulled from database and a cta that sits on top. i.e, "Summer Sales!" or smth like that. Within the blurb 
@@ -55,25 +56,141 @@
         </div>
 
         <section id="homeShopContainer">
-
             <section class = "headingContainer">
                 <div class="homeShopHeading"><h2> Explore the Dark </h2></div>
                 <div class="homeShopSubHeading"><h3>Sales on select items up to 20% off</h3></div>
             </section>
-            
+        </section>
+
             <section class = "homeShop">
+
                 <div class = "shopItems"> <!-- 5 Rows 3 Columns -->
                     <img src="/Final Project PHPCSS/E-CommerceWebsite/assets(temp)/TestImagePHPCSS.jpg" alt="A really cool guy" class = "productImage">
                     <h3 class = "itemName"> Test Text for the Product Name Display </h3>
                     <p class = "itemPrice"> Pricing Information </p>
                     <p> Small blurb about the item </p>
-                    <button type="button" class = "productCardButton"> View </button>
-                    <button type="button" class = "productCardButton"> Add To Cart </button>
-                    <button type="button" class = "productCardButton"> Favorite </button>
+
+                    <div class = "productButtonGroup">
+                     <button type="button" > View </button>
+                     <button type="button" > Add To Cart </button>
+                     <button type="button" > Favorite </button>   
+                    </div>
                 </div>
 
+                <div class = "shopItems"> <!-- 5 Rows 3 Columns -->
+                    <img src="/Final Project PHPCSS/E-CommerceWebsite/assets(temp)/TestImagePHPCSS.jpg" alt="A really cool guy" class = "productImage">
+                    <h3 class = "itemName"> Test Text for the Product Name Display </h3>
+                    <p class = "itemPrice"> Pricing Information </p>
+                    <p> Small blurb about the item </p>
+
+                    <div class = "productButtonGroup">
+                     <button type="button" > View </button>
+                     <button type="button" > Add To Cart </button>
+                     <button type="button" > Favorite </button>   
+                    </div>
+                </div>
+
+                <div class = "shopItems"> <!-- 5 Rows 3 Columns -->
+                    <img src="/Final Project PHPCSS/E-CommerceWebsite/assets(temp)/TestImagePHPCSS.jpg" alt="A really cool guy" class = "productImage">
+                    <h3 class = "itemName"> Test Text for the Product Name Display </h3>
+                    <p class = "itemPrice"> Pricing Information </p>
+                    <p> Small blurb about the item </p>
+
+                    <div class = "productButtonGroup">
+                     <button type="button" > View </button>
+                     <button type="button" > Add To Cart </button>
+                     <button type="button" > Favorite </button>   
+                    </div>
+                </div>
+
+                <div class = "shopItems"> <!-- 5 Rows 3 Columns -->
+                    <img src="/Final Project PHPCSS/E-CommerceWebsite/assets(temp)/TestImagePHPCSS.jpg" alt="A really cool guy" class = "productImage">
+                    <h3 class = "itemName"> Test Text for the Product Name Display </h3>
+                    <p class = "itemPrice"> Pricing Information </p>
+                    <p> Small blurb about the item </p>
+
+                    <div class = "productButtonGroup">
+                     <button type="button" > View </button>
+                     <button type="button" > Add To Cart </button>
+                     <button type="button" > Favorite </button>   
+                    </div>
+                </div>
+
+                <div class = "shopItems"> <!-- 5 Rows 3 Columns -->
+                    <img src="/Final Project PHPCSS/E-CommerceWebsite/assets(temp)/TestImagePHPCSS.jpg" alt="A really cool guy" class = "productImage">
+                    <h3 class = "itemName"> Auto Display Name Pulled from Database </h3>
+                    <p class = "itemPrice"> Auto Display Pricing Information </p>
+                    <p> Optional if null remains empty description </p>
+
+                    <div class = "productButtonGroup">
+                     <button type="button" > View = Send them to a dedicated shop page for the item that auto populates. </button>
+                     <button type="button" > Add To Cart = Add to Cart column of customer information. </button>
+                     <button type="button" > Favorite = Add to Favorites column of customer information. </button>   
+                    </div>
+                </div>
+
+                <div class = "shopItems"> <!-- 5 Rows 3 Columns -->
+                    <img src="/Final Project PHPCSS/E-CommerceWebsite/assets(temp)/TestImagePHPCSS.jpg" alt="A really cool guy" class = "productImage">
+                    <h3 class = "itemName"> Test Text for the Product Name Display </h3>
+                    <p class = "itemPrice"> Pricing Information </p>
+                    <p> Small blurb about the item </p>
+
+                    <div class = "productButtonGroup">
+                     <button type="button" > View </button>
+                     <button type="button" > Add To Cart </button>
+                     <button type="button" > Favorite </button>   
+                    </div>
+                </div>
+
+                <div class = "shopItems"> <!-- 5 Rows 3 Columns -->
+                    <img src="/Final Project PHPCSS/E-CommerceWebsite/assets(temp)/TestImagePHPCSS.jpg" alt="A really cool guy" class = "productImage">
+                    <h3 class = "itemName"> Auto Display Name Pulled from Database </h3>
+                    <p class = "itemPrice"> Auto Display Pricing Information </p>
+                    <p> Optional if null remains empty description </p>
+
+                    <div class = "productButtonGroup">
+                     <button type="button" > View = Send them to a dedicated shop page for the item that auto populates. </button>
+                     <button type="button" > Add To Cart = Add to Cart column of customer information. </button>
+                     <button type="button" > Favorite = Add to Favorites column of customer information. </button>   
+                    </div>
+                </div>
+
+                <div class = "shopItems"> <!-- 5 Rows 3 Columns -->
+                    <img src="/Final Project PHPCSS/E-CommerceWebsite/assets(temp)/TestImagePHPCSS.jpg" alt="A really cool guy" class = "productImage">
+                    <h3 class = "itemName"> Auto Display Name Pulled from Database </h3>
+                    <p class = "itemPrice"> Auto Display Pricing Information </p>
+                    <p> Optional if null remains empty description </p>
+
+                    <div class = "productButtonGroup">
+                     <button type="button" > View = Send them to a dedicated shop page for the item that auto populates. </button>
+                     <button type="button" > Add To Cart = Add to Cart column of customer information. </button>
+                     <button type="button" > Favorite = Add to Favorites column of customer information. </button>   
+                    </div>
+                </div>
+
+                <div class = "shopItems"> <!-- 5 Rows 3 Columns -->
+                    <img src="/Final Project PHPCSS/E-CommerceWebsite/assets(temp)/TestImagePHPCSS.jpg" alt="A really cool guy" class = "productImage">
+                    <h3 class = "itemName"> Auto Display Name Pulled from Database </h3>
+                    <p class = "itemPrice"> Auto Display Pricing Information </p>
+                    <p> Optional if null remains empty description </p>
+
+                    <div class = "productButtonGroup">
+                     <button type="button" > View = Send them to a dedicated shop page for the item that auto populates. </button>
+                     <button type="button" > Add To Cart = Add to Cart column of customer information. </button>
+                     <button type="button" > Favorite = Add to Favorites column of customer information. </button>   
+                    </div>
+                </div>
             </section>
-        </section>
+
+            <section id="aboutUs">
+                <img src="/Final Project PHPCSS/E-CommerceWebsite/assets(temp)/TestImagePHPCSS.jpg" alt="A really cool guy">
+                <h3>Who We Are</h3>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor excepturi voluptates 
+                    quisquam soluta nihil voluptatem quod placeat! Animi sint delectus illo veniam. Aut obcaecati 
+                    eum fugiat consectetur praesentium eius provident.</p>
+
+
+            </section>
         
         <section id = "backToTop">
             <h2> You've reached the end </h2>
@@ -82,7 +199,7 @@
                
     </main>
 
-    <?php include "C:\\xampp\htdocs\Final Project PHPCSS\E-CommerceWebsite\backend\globals\\footer.php" ?>
-
+    
+<?php include "C:\\xampp\htdocs\Final Project PHPCSS\E-CommerceWebsite\backend\globals\\footer.php" ?>
 </body>
 </html>

@@ -80,7 +80,7 @@ a {
  box-shadow: 0 0 0.5rem var(--boxShadow); 
  position: sticky;
  top: 0;
- z-index: 1;
+ z-index: 11;
 }
 
 .header > nav {
@@ -220,6 +220,7 @@ footer {
       margin: 0;
       padding: 0;
       overflow-x: hidden;
+      background-color: var(--bgColorDark);
     }
 
     .heroSlides {
@@ -328,6 +329,9 @@ footer {
       grid-row: 1;
       height: 10rem;
       width: 100%;
+
+      border-bottom: 0.1rem solid var(--bgColorLight);
+     
     }
 
     .homeShopHeading {
@@ -366,15 +370,101 @@ footer {
     /* -------------- Product Card Styling --------------  */
 
     .homeShop {
-      grid-column: 1 / -1;
-      grid-row: 3;
-      padding-top: var(--padMd);
       background-color: var(--bgColorDark);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 3rem;
+      padding: 0rem 10rem 1rem 10rem;
+    }
+
+    .shopItems {
+      background-color: var(--bgColorLight);
+      border: 1px solid var(--boxShadow);
+      /* border-radius: 1rem; */
+      box-shadow: 0 0 0.2rem var(--focusColorDark);
+      padding: 1.5rem 0 var(--padSm) 0;
+
+      max-width: 25rem;
+      height: auto;
+      
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      flex-wrap: wrap;
+      
     }
 
     .productImage {
-      width: 20rem;
-      height: 15rem;
+      grid-column: 1 / 4;
+      grid-row: 1 /1;
+      width: 15rem;
+      height: 10rem;
+      padding-bottom: var(--padSm);
+    }
+
+    .itemName {
+      
+    }
+
+    .itemPrice {
+      
+    }
+
+    .productButtonGroup {
+      display: flex;
+      flex-direction: row;
+      gap: var(--marSm);
+    }
+
+
+    /* -------------- Home About Us Styling -------------- */
+
+    #aboutUs {
+      max-width: 100%;
+      height: auto;
+      display: grid;
+      padding-top: var(--padSm);
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: 1 1fr;
+
+    }
+
+    #aboutUs > img {
+      max-height: 60rem;
+      max-width: 60rem;
+      border-radius: 5rem;
+      grid-column: 2 / 2;
+      grid-row: 1;
+    }
+
+    #aboutUs > h3 {
+      font-family: var(--strictFont);
+      font-size: var(--fontLr);
+      padding-top: 5rem;
+      letter-spacing: 1rem;
+      grid-column: 1 / 1;
+      grid-row: 1;
+
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    #aboutUs > p {
+      padding: var(--padSm);
+      grid-column: 1 /1 ;
+      grid-row: 1;
+
+      font-family: var(--strictFont);
+      letter-spacing: 0.2rem;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
     }
     
 
