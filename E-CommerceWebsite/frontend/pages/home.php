@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pirata+One&family=Quintessential&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Story+Script&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css"></link>
     <script src="/Final Project PHPCSS/E-CommerceWebsite/frontend/jsAnimations/heroCarousel.js" defer></script>
     <?php include "C:\\xampp\htdocs\Final Project PHPCSS\E-CommerceWebsite\backend\globals\header.php"; ?>
@@ -77,9 +78,9 @@
                 <div class = "shopItems"> <!-- 5 Rows 3 Columns -->
                     <img src="/Final Project PHPCSS/E-CommerceWebsite/assets(temp)/TestImagePHPCSS.jpg" alt="A really cool guy" class = "productImage">
                     <p class="itemType">Autofill Item Filters ie, women fashion, luxury etc</p>
-                    <h3 class = "itemName"> Test Text for the Product Name Display </h3>
+                    <h3 class = "itemName"> Iron Mask</h3>
                     <div class = "productCardDivider"></div>
-                    <p class = "itemPrice"> $20,000 </p>
+                    <p class = "itemPrice"> $20,000.00 </p>
                     
 
                     <div class = "productButtonGroup">
