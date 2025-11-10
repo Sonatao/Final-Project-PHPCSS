@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name= "description" content="Clothing. Mens. Womens. Workers. Work. Boots. Shoes. Sandals. Top. Bottom. Tops. Bottoms.">
     <meta name="robots">
-    <link rel="stylesheet" href="/Final Project PHPCSS/E-CommerceWebsite/frontend/css/style.css"></link>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pirata+One&family=Quintessential&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css"></link>
     <script src="/Final Project PHPCSS/E-CommerceWebsite/frontend/jsAnimations/heroCarousel.js" defer></script>
     <title>E-Commerce Website</title>
 
@@ -21,7 +24,7 @@
              have it link back to the register page.  -->
                 <div class ="heroSlides fade">
                     <div class = "heroText">
-
+                        <h2></h2>
                     </div>
 
                     <img src="/Final Project PHPCSS/E-CommerceWebsite/assets(temp)/TestImagePHPCSS.jpg" class = "heroImages">
@@ -29,14 +32,14 @@
 
                 <div class ="heroSlides fade">
                     <div class = "heroText">
-
+                        <h2></h2>
                     </div>
                     <img src="/Final Project PHPCSS/E-CommerceWebsite/assets(temp)/TestImagePHPCSS2.jpg" class = "heroImages">
                 </div>
 
                 <div class ="heroSlides fade">
                     <div class = "heroText">
-
+                        <h2></h2>
                     </div>
                     <img src="/Final Project PHPCSS/E-CommerceWebsite/assets(temp)/TestImagePHPCSS3.avif" class = "heroImages">
                 </div>
@@ -51,32 +54,27 @@
             <span class="slideDot" onclick="currentSlide(3)"></span>
         </div>
 
-        <section id = "featureCards">
-            <!-- Think of the amazon featured cards, rebuild and add here , keep clean and consistent, but make them a bit larger, center text, etc. Each card, 
-             should link to a dedicated shop page for that item, think amazon.  -->
-        </section>
+        <section id="homeShopContainer">
 
-        <section id = "featureCarousel">
-            <!-- Can be reused. Create carousel here that features all the featured products. Each product links back to it's own page. -->
-        </section>
+            <section class = "headingContainer">
+                <div class="homeShopHeading"><h2> Explore the Dark </h2></div>
+                <div class="homeShopSubHeading"><h3>Sales on select items up to 20% off</h3></div>
+            </section>
+            
+            <section class = "homeShop">
+                <div class = "shopItems"> <!-- 5 Rows 3 Columns -->
+                    <img src="/Final Project PHPCSS/E-CommerceWebsite/assets(temp)/TestImagePHPCSS.jpg" alt="A really cool guy" class = "productImage">
+                    <h3 class = "itemName"> Test Text for the Product Name Display </h3>
+                    <p class = "itemPrice"> Pricing Information </p>
+                    <p> Small blurb about the item </p>
+                    <button type="button" class = "productCardButton"> View </button>
+                    <button type="button" class = "productCardButton"> Add To Cart </button>
+                    <button type="button" class = "productCardButton"> Favorite </button>
+                </div>
 
-        <section id = "fireSale">
-            <!-- Reuse the feature cards but swap it up, instead of individual items as in feature cards, use industries, ie, "Tech", "Outdoors" etc, 
-             for the cards title and interior clickable images that will link to the page with that being displayed. -->
-        </section>
-
-        <section id = "outdoorsCarousel">
-            <!-- Features outdoor items. Links back to individual pages, make the word outdoors clickable to go to the full shop page -->
+            </section>
         </section>
         
-        <section id = "forHer">
-            <!-- Female targetted products. Image links to shop page, and individual pages. -->
-        </section>
-
-        <section id = "forHim">
-            <!-- Male targetted products. Parameters same as female section parameters. -->
-        </section>
-
         <section id = "backToTop">
             <h2> You've reached the end </h2>
             <p> Back to top </p>

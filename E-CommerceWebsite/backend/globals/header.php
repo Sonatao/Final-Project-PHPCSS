@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/Final Project PHPCSS/E-CommerceWebsite/frontend/css/style.css"></link>
+
 <script src="/Final Project PHPCSS/E-CommerceWebsite/frontend/jsAnimations/sideNav.js" defer></script>
 <header class = "header">
     

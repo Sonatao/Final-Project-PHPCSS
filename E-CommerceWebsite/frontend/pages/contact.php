@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name= "description" content="Clothing. Mens. Womens. Workers. Work. Boots. Shoes. Sandals. Top. Bottom. Tops. Bottoms.">
     <meta name="robots">
-    <link rel="stylesheet" href="/Final Project PHPCSS/E-CommerceWebsite/frontend/css/style.css"></link>
+    <link rel="stylesheet" href="../css/style.css"></link>
     <title>E-Commerce Website</title>
 
 </head>
