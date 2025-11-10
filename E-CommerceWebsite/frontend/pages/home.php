@@ -191,11 +191,6 @@
 
 
             </section>
-        
-        <section id = "backToTop">
-            <h2> You've reached the end </h2>
-            <p> Back to top </p>
-        </section>
                
     </main>
 
