@@ -127,6 +127,8 @@ a {
   transition: 0.3s ease;
   opacity: 0.9;
   
+  border-right: 0.1rem solid var(--boxShadow);
+  box-shadow: 0 0 0.5rem var(--boxShadow); 
 }
 
 .sideNav > a { 
@@ -249,12 +251,14 @@ footer {
     .previous {
       border-radius: 5rem;
       margin-left: var(--marMd);
+      opacity: 0.5;
     }
 
     .next {
         right: 0;
         border-radius: 5rem;
         margin-right: var(--marMd);
+        opacity: 0.5;
     }
 
     .previous:hover, .next:hover {
@@ -266,9 +270,52 @@ footer {
         font-size: 15px;
         padding: 8px 12px;
         position: absolute;
-        bottom: 8px;
-        width: 100%;
+        bottom: 25%;
+        right: 25%;
+        left: 25%;
+        top: 25%;
+        max-width: 50%;
+        max-height: 45%;
+        border-radius: 5rem;
         text-align: center;
+
+        background-color: var(--btnColorHover);
+        opacity: 0.8;
+    }
+
+    .heroText > h2 {
+      padding-bottom: var(--padSm);
+      font-size: var(--fontExLr);
+      color: var(--focusColorDark);
+      font-family: var(--strictFont);
+      opacity: 1;
+    }
+
+    .heroText > p {
+      font-family: var(--strictFont);
+      letter-spacing: 0.35rem;
+      font-size: 1.5rem;
+      color: var(--focusColorLight);
+      text-shadow: 0.5rem 0.5rem 10rem var(--bgColorDark);
+      padding-bottom: var(--padMd);
+      opacity: 1;
+    }
+
+    .heroText > a {
+      margin-top: var(--marSm);
+      padding: var(--padSm);
+      background-color: var(--btnBgColor);
+      color: var(--btnColorHover);
+      max-height: 1rem;
+      border-radius: 1rem;
+      opacity: 1;
+      
+    }
+
+    .heroText > a:hover {
+      background-color: var(--btnColorHover);
+      color: var(--btnBgColor);
+      opacity: 1;
     }
 
     .slideDot {
@@ -329,8 +376,6 @@ footer {
       grid-row: 1;
       height: 10rem;
       width: 100%;
-
-      border-bottom: 0.1rem solid var(--bgColorLight);
      
     }
 
@@ -367,24 +412,41 @@ footer {
       
     }
 
+    .divider {
+      grid-column: 1 / -1;
+      grid-row: 3;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      margin-top: var(--marSm);
+      margin-right: 20%;
+      margin-left: 20%;
+      max-width: 100%;
+      height: 0.18rem;
+      background-color: var(--bgColorLight);
+    }
+
     /* -------------- Product Card Styling --------------  */
 
     .homeShop {
       background-color: var(--bgColorDark);
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: repeat(3, 1fr);
-      gap: 3rem;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      /* gap: 3rem; */
       padding: 0rem 10rem 1rem 10rem;
     }
 
     .shopItems {
-      background-color: var(--bgColorLight);
+      /* background-color: var(--bgColorLight);
       border: 1px solid var(--boxShadow);
-      /* border-radius: 1rem; */
+      border-radius: 1rem; 
       box-shadow: 0 0 0.2rem var(--focusColorDark);
-      padding: 1.5rem 0 var(--padSm) 0;
+      padding: 1.5rem 0 var(--padSm) 0; */
 
+      padding-bottom: var(--padMd);
       max-width: 25rem;
       height: auto;
       
@@ -397,19 +459,46 @@ footer {
       
     }
 
+    .shopItems:hover {
+      /* Add a hover here, after Phase 1 when you have more time to spare. */
+    }
+
     .productImage {
       grid-column: 1 / 4;
       grid-row: 1 /1;
-      width: 15rem;
-      height: 10rem;
+      width: 21rem;
+      height: 18rem;
+      padding-bottom: var(--padSm);
+    }
+
+    .itemType {
+      font-family: var(--strictFont);
       padding-bottom: var(--padSm);
     }
 
     .itemName {
+      font-family: var(--strictFont);
+      padding-bottom: var(--padSm);
       
     }
 
+    .productCardDivider {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      margin-top: var(--marSm);
+      margin-right: 20%;
+      margin-left: 20%;
+      max-width: 100%;
+      height: 0.1rem;
+      background-color: var(--bgColorDark);
+    }
+
     .itemPrice {
+      font-family: var(--fancyFont);
+      color: var(--focusColorDark);
+      font-size: 1.5rem;
       
     }
 
@@ -417,6 +506,7 @@ footer {
       display: flex;
       flex-direction: row;
       gap: var(--marSm);
+      font-family: var(--strictFont);
     }
 
 
@@ -424,9 +514,9 @@ footer {
 
     #aboutUs {
       max-width: 100%;
+      padding: var(--padSm);
       height: auto;
       display: grid;
-      padding-top: var(--padSm);
       grid-template-columns: repeat(2, 1fr);
       grid-template-rows: 1 1fr;
 
@@ -466,11 +556,6 @@ footer {
       align-items: center;
       flex-direction: column;
     }
-    
-
-
-
-
 
 /* 
 -------------- Shop Page Styling --------------
@@ -483,6 +568,8 @@ footer {
 /* 
 -------------- Contact Page Styling --------------
  */
+
+
 
 
 

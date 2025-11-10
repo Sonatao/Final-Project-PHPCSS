@@ -4,6 +4,7 @@
     
 <div id= "SideNav" class="sideNav">
             <a href="javascript:void(0)" class="closeButton" onclick="closeNav()">&times;</a>
+            <a href="home.php">Home</a>
             <a href="shop.php">Shop</a>
             <a href="login.php">Login</a>
             <a href="contact.php">Contact</a>
