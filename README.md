@@ -9,7 +9,7 @@ Technologies Used:
 - PHP 
 - mySQL
 
-The purpose of the project beyong the grade is to build an e-commerce website front to back, with auto populating store pages, proper styling of content on the pages to create a coherent look, with consistent branding colors, as well as an inviting 
+The purpose of the project beyond the grade is to build an e-commerce website front to back, with auto populating store pages, proper styling of content on the pages to create a coherent look, with consistent branding colors, as well as an inviting 
 feeling it all, though before all of this, being very easy to navigate and follow.
 
 The idea for this is a Halloween Shop! That is going to be the theme of this particular E-Commerce Website, the colors, branding and wording will be consistent with that.
