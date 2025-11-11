@@ -542,6 +542,8 @@ footer {
       border-radius: 5rem;
       grid-column: 2 / 2;
       grid-row: 1;
+
+      box-shadow: 0 0 0.8rem var(--boxShadow); 
     }
 
     #aboutUs > h3 {
@@ -624,20 +626,154 @@ footer {
     gap: 1rem;
   }
 
-  
-
-
-
 /* 
 -------------- About Page Styling --------------
   */
+
+  .aboutUsMast {
+      height: 100vh;
+      width: 100%;
+  
+      /* I know that I likely shouldn't be commenting here, but, nuclear levels of frustration on this url. Easily the most frustrating part of this,
+      all because of the () took forever to troubleshoot that out, guess my brain just failed there. */
+      background-image: url('../../assets%28temp%29/contactMastImage.jpg');
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .aboutUsMast > h2 {
+      font-size: 3rem;
+      padding: var(--padSm);
+      letter-spacing: 0.2rem;
+
+      font-family: var(--strictFont);
+      
+
+    }
+
+    .aboutUsMast > h4 {
+      font-size: 1.5rem;
+
+      font-family: var(--strictFont);
+      
+    }
 
 /* 
 -------------- Contact Page Styling --------------
  */
 
+  #contactPageHead {
+    height: 100vh;
+    max-width: 100%;
+
+    background-image: url('../../assets%28temp%29/TestImagePHPCSS3.avif');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    font-family: var(--strictFont);
+    font-weight: bold;
+    font-size: 1.5rem;
+    letter-spacing: 0.3rem;
+
+    
+  }
+
+  #contactPageHead > h2 {
+    font-family: inherit;
+    color: var(--focusColorDark);
+
+    font-size: 7rem;
+    letter-spacing: 1rem;
+  }
+
+  #contactPageHead > h3 {
+    font-family: inherit;
+    color: var(--focusColorLight);
+    letter-spacing: 0.5rem;
+    padding-top: var(--padSm);
+  }
+
+  .contactPageMain {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1 1fr;
 
 
+  }
+
+  .contactHeader {
+    grid-column: 1 /1;
+    grid-row: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    height: 100%;
+    width: 100%;
+    
+  }
+
+  .contactCTA {
+    font-size: var(--fontLr);
+    color: var(--focusColorLight);
+    font-family: var(--strictFont);
+
+    position: relative;
+    bottom: 30%;
+    
+    
+  }
+
+  .contactBlurb {
+
+    position: relative;
+    bottom: 23%;
+    
+
+  }
+
+  .contactPhoneNumber {
+    
+    position: relative;
+    bottom: 18%;
+    
+    color: var(--bgColorVeryLight);
+    text-decoration: underline;
+
+    transition: 0.3s ease;
+  }
+
+  .contactPhoneNumber:hover {
+    color: var(--focusColorDark);
+  }
+
+  .contactImage {
+    grid-column: 2 / 2;
+    grid-row: 1;
+
+    width: 50rem;
+    height: 39rem;
+
+    margin: var(--marSm);
+    border-radius: 10rem;
+
+    box-shadow: 0 0 0.8rem var(--boxShadow); 
+  }
 
 
 /* 

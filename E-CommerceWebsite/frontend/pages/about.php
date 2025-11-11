@@ -12,9 +12,18 @@
 <body>
     <?php include "C:\\xampp\htdocs\Final Project PHPCSS\E-CommerceWebsite\backend\globals\header.php"; ?>
     <main>
-        <section>
-             
-        </section>       
+        <section class = "aboutUsMast">
+            <h2> The Home of Spooks and Specters </h2>
+            <h4> Since 1892 </h4>
+        </section>
+
+        <section id="aboutUs">
+                <img src="/Final Project PHPCSS/E-CommerceWebsite/assets(temp)/TestImagePHPCSS.jpg" alt="A really cool guy">
+                <h3>Who We Are</h3>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor excepturi voluptates 
+                    quisquam soluta nihil voluptatem quod placeat! Animi sint delectus illo veniam. Aut obcaecati 
+                    eum fugiat consectetur praesentium eius provident.</p>
+            </section>     
     </main>
 
         <?php include "C:\\xampp\htdocs\Final Project PHPCSS\E-CommerceWebsite\backend\globals\\footer.php" ?>

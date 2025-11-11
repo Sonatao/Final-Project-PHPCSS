@@ -17,6 +17,7 @@
                 <a href="home.php"> Home </a>
                 <a href="shop.php"> Products </a>
                 <a href="contact.php"> Contact </a>
+                <a href="about.php">About Us</a>
                 <a href="register.php"> Register </a>
                 <a href="login.php"> Login </a>
             </ul>

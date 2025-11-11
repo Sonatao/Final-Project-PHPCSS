@@ -13,17 +13,22 @@
     <?php include "C:\\xampp\htdocs\Final Project PHPCSS\E-CommerceWebsite\backend\globals\header.php"; ?>
 
     <main>
-        <section id = "contactPage">
-            <h2> Contact Us </h2>
-            
-            
-
-            
+        <section id = "contactPageHead">
+            <h2> Need help?  </h2>
+            <h3> Contact Information Below </h3>
         </section>       
+        <!-- Upon finishing the setup of the back end, add an accordian here so a frequently asked questions 
+         section. Keep simple for now. -->
+        <section class = "contactPageMain">
+            <div class="contactHeader">
+            <h3 class = "contactCTA"> Need Help with your purchase? </h3>
+            <p class = "contactBlurb"> We here at Spookies Inc take your concerns very seriously.</p>
+            <p class = "contactPhoneNumber"> Call our 24/7 Line at +1 XXX-XXX-XXXX</p>   
+            </div>
+            <img src="/Final Project PHPCSS/E-CommerceWebsite/assets(temp)/TestImagePHPCSS2.jpg" alt="Test Image for Phase1" class = "contactImage">
+        </section>
     </main>
 
         <?php include "C:\\xampp\htdocs\Final Project PHPCSS\E-CommerceWebsite\backend\globals\\footer.php" ?>
-
-
 </body>
 </html>
