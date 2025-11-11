@@ -575,6 +575,59 @@ footer {
 -------------- Shop Page Styling --------------
   */
 
+  .shopBanner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  
+  }
+
+  .shopBanner > h1 {
+    color: var(--focusColorDark);
+    font-family: var(--strictFont);
+    font-size: 3rem;
+    letter-spacing: 1rem;
+    padding-bottom: var(--padSm);
+    padding-top: var(--padSm);
+    /* text-shadow: 0px 0px 0.1px var(--bgColorVeryLight); */
+  }
+
+  .shopBanner > h3 {
+    color: var(--focusColorLight);
+    font-family: var(--fancyFont);
+    padding-bottom: var(--padSm);
+    letter-spacing: 0.55rem;
+  }
+
+  .dividerShopPage {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      margin-top: var(--marSm);
+      
+      
+      width: 75%;
+      height: 0.005rem;
+      background-color: var(--bgColorVeryLight);
+      margin-bottom: var(--padSm);
+      
+  }
+
+  .shop {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    padding: 0;
+    margin: 0;
+    gap: 1rem;
+  }
+
+  
+
+
+
 /* 
 -------------- About Page Styling --------------
   */
