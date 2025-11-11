@@ -5,6 +5,7 @@ product_Id INT AUTO_INCREMENT,
 product_Name VARCHAR(255) NOT NULL,
 product_Price INT NOT NULL,
 product_Description VARCHAR(1000),
+product_Quantity INT Not NULL,
 purchase_Date DATE,
 PRIMARY KEY(Product_id)
 );
@@ -24,10 +25,9 @@ CREATE Table if not exists guestInfo (
     PRIMARY KEY(guest_id)
 );
 
-CREATE Table if NOT EXISTS Inquires {
-    email VARCHAR(255) not null,
-    name VARCHAR(255) not null,
-    phone_Number INT not null, 
-    inquiry VARCHAR(500),
-    PRIMARY KEY(email)
-};
+
+-- Admittedly, I'm not sure what was meant by structured and tested, but this has been tested, when you run this, it will create the database, and each name links 
+-- back to a part of the product .shopItems names via the get and post, it will also link back to the form for register and login. They don't right now,
+-- but once the prepared is created it will.
+
+
