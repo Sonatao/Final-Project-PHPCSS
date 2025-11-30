@@ -113,6 +113,20 @@ class CRUD {
             }
             return ['success' => false, 'message' => 'Failed to update database.'];
         }
+
+        public function delete($id) {
+            $query = "DELETE FROM " . $this->table_name . " WHERE id = ?";
+
+            $stmt = $this->conn->prepare($query);
+
+            $sanitziedId = htmlspecialchars(strip_tags($id));
+            $stmt->bindParam(1, $sanitziedId);
+
+            if($stmt->execute()) {
+                return ['success' => true, 'message' => 'Product deleted.'];
+            }
+            return ['success' => false, 'message' => 'Product not found or already deleted.'];
+        }
 }
        
 
