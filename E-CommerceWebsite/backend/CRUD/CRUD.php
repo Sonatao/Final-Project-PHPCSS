@@ -7,7 +7,7 @@ require_once ("../config.php");
 // Create Stuff Below 
 class CRUD {
     private $conn;
-    private $table_name="form_data";
+    private $table_name="Users";
 
     public function __construct($db){
         $this->conn = $db;
@@ -44,7 +44,7 @@ class CRUD {
     return $err;
 }
 
-// ---------- Functions for Registration & Login ----------
+// ---------- Functions for Create, REGISTER, LOGIN, CREATEPRODCUT ----------
 // ----- Register Below ------
     public function register($data) {
         $validation_errors = $this->dataValidation($data);
@@ -121,7 +121,35 @@ class CRUD {
             } else {
                 return ['success' => false, 'error' => ['email' => 'Account does not exist']];
             }
-        }
+        } 
+        
+        public function createProduct($data) {
+            session_start();
+            if($_SESSION['role'] != 'admin') {
+                return ['success' => false, 'message' => 'Access Denied.'];
+                }
+            
+                $query = "INSERT INTO Products (product_Name, product_Price, product_Description, product_Quantity, purchase_Date
+                VALUES (:name, :price, :description, :quantity, CURDATE())";
+                $stmt = $this->conn->prepare($query);
+
+                # Deep clean time.
+
+                $name = htmlspecialchars(strip_tags($data['product_Name']));
+                $price = htmlspecialchars(strip_tags($data['product_Price']));
+                $quantity = htmlspecialchars(strip_tags($data['product_Quantity']));
+                $description = htmlspecialchars(strip_tags($data['product_Description']));
+
+                $stmt->bindParam(':name', $name);
+                $stmt->bindParam(':price', $price);
+                $stmt->bindParam(':quantity', $quantity);
+                $stmt->bindParam(':description', $description);
+
+                if($stmt->execute()){
+                    return['success' => true, 'message' => 'Product created.'];
+                }
+                return['success' => false, 'message' => 'Product failed to create. Seek technician.'];
+            }
 
 // ---------- ^^^^^^^ Registration and Login Complete ^^^^^^^^----------
 
@@ -202,7 +230,22 @@ class CRUD {
             return ['success' => false, 'message' => 'Product not found or already deleted.'];
         }
 }
-       
+    // ----------------- Temporary Controller for From Submissions from Admin Dashboard -------------------------   
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        $crud = new CRUD($db);
 
+        switch ($_POST['action']) {
+            case 'create':
+                $result = $crud->createProduct($_POST);
+                break;
+            case 'update':
+                $result = $crud->updateProduct($_POST);
+                break;
+            case 'delete':
+                $result = $crud->deleteProduct($_POST);
+                break;
+        }
+        echo $result['message'];
+    }
 
 
