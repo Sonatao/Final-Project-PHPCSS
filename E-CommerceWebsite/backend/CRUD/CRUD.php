@@ -44,16 +44,14 @@ class CRUD {
     return $err;
 }
 
-    public function create($data) {
+    public function register($data) {
         $validation_errors = $this->dataValidation($data);
         if(!empty($validation_errors)) {
             return ['success' => false, 'errors' => $validation_errors];
         }
 
         # Prepared Statements first, for database security.
-
-        $query = "'INSERT INTO' . $this->table_name . SET name=:name, email=:email, password=:password";
-
+        $query = "INSERT INTO . $this->table_name . SET name=:name, email=:email, password=:password";
         $stmt = $this->conn->prepare($query);
 
 
@@ -61,7 +59,7 @@ class CRUD {
 
         $name = htmlspecialchars(strip_tags($data['name']));
         $email = htmlspecialchars(strip_tags($data['email']));
-        $password = htmlspecialchars(strip_tags($data['password']));
+        $password = password_hash($data['password'], PASSWORD_DEFAULT);
         
         $stmt->bindParam(':name', $name);
         $stmt->bindParam(':email', $email);
@@ -71,6 +69,50 @@ class CRUD {
             return ['success' => true, 'message' => 'Item Created Successfully'];
             }
         return ['success' => false, 'message' => 'Failed to create item.'];
+        }
+
+        public function login($data) {
+            $err = [];
+
+            if(empty($data['email'])) {
+                $err['email'] = "Email is required.";
+            } elseif(!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
+                $err['email'] = "Invalid email.";
+            }
+
+            if(empty($data['password'])) {
+                $err['password'] = "Password is required.";
+            } 
+
+            if(!empty($err)) {
+                return['success' => false, 'errors' => $err];
+            }
+
+            #Now we query the database for the user to see if they even exist etc.
+
+            $query = "SELECT id, name, email, password, role FROM " . $this->table_name . " WHERE email=:email LIMIT 1";
+            $stmt = $this->conn->prepare($query);
+            $stmt->bindParam(":email", $data['email']);
+            $stmt->execute();
+
+            $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if($user) {
+                # Password work.
+
+                if (password_verify($data['password'], $user['password'])) {
+                    session_start();
+                    $_SESSION['id'] = $user['id'];
+                    $_SESSION['name'] = $user['name'];
+                    $_SESSION['role'] = $user['role'];
+
+                    return ['succcess' => true, 'message' => 'Login Successful'];
+                } else {
+                    return['success' => false, 'error' => ['password' => 'Inccorect Password.']];
+                }
+            } else {
+                return ['success' => false, 'error' => ['email' => 'Account does not exist']];
+            }
         }
 
         # Now the skeleton for the Read Operation

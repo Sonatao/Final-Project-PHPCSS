@@ -13,22 +13,15 @@ CREATE TABLE IF NOT EXISTS Products (
 PRIMARY KEY(Product_id)
 );
 
-CREATE Table IF NOT EXISTS adminInfo (
-    'admin_Id' INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    'admin_Name' VARCHAR(255) NOT NULL,
-    'admin_Password' varchar(255) NOT NULL,
-    'created_At' TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-    PRIMARY KEY(admin_id)
+CREATE TABLE IF NOT EXISTS Users (
+    user_Id INT(10) AUTO_INCREMENT PRIMARY KEY,
+    user_Name VARCHAR(255) NOT NULL,
+    user_Email VARCHAR(255) UNIQUE NOT NULL,
+    user_Password VARCHAR(255) NOT NULL,
+    role ENUM('admin', 'customer') DEFAULT 'customer',
+    created_At TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE Table if not exists guestInfo (
-    'guest_id' INT(5) not null AUTO_INCREMENT PRIMARY KEY,
-    'guest_Name' VARCHAR(255),
-    'guest_Password' VARCHAR(255),
-    'guest_Email' VARCHAR(255),
-    'created_At' TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-    PRIMARY KEY(guest_id)
-);
 
 
 -- Admittedly, I'm not sure what was meant by structured and tested, but this has been tested, when you run this, it will create the database, and each name links 
