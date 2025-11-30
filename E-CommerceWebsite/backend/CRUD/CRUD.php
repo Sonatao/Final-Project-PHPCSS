@@ -63,6 +63,31 @@ class CRUD {
         }
 
         # Now the skeleton for the Read Operation
+        public function readAll() {
+            # Going to keep this basic, and just have it be read in order of ID, so it wont be variable or anything but it will show.
+             $query = "SELECT * FROM " . $this->table_name . " ORDER BY id DESC";
+             $stmt = $this->conn->prepare($query);
+             $stmt->execute();
+
+             return $stmt;
+        }
+
+        #Preps for the Update function.
+        public function readOne($id) {
+            $query = "SELECT * FROM" . $this->table_name . "WHERE id = ?";
+            $stmt = $this->conn->prepare($query);
+
+            $stmt->bindParam(1, $id);
+            $stmt->execute();
+
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            
+            return $row;
+        }
 
         
+}
+       
+
+
 
