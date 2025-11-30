@@ -85,7 +85,34 @@ class CRUD {
             return $row;
         }
 
-        
+        public function update($id, $data) {
+            $validation_errors = $this->dataValidation($data);
+            if(!empty($validation_errors)){
+                return ['success' => false, 'errors' => $validation_errors];
+            }
+
+            $query = " UPDATE " . $this->table_name . " SET name=:name, email=:email WHERE id = :id";
+
+            $stmt = $this->conn->prepare($query);
+
+            $name = htmlspecialchars(strip_tags($data['name']));
+            $email = htmlspecialchars(strip_tags($data['email']));
+            $description = htmlspecialchars(strip_tags($data['description']));
+
+            $stmt->bindParam(':id', $id);
+            $stmt->bindParam(':name', $name);
+            $stmt->bindParam(':email', $email);
+            $stmt->bindParam(':description', $description);
+
+            if($stmt->execute()) {
+
+                if($stmt->rowCount() > 0) {
+                    return ['success' => true, 'message' => "Update Complete."];
+                }
+                return ['success' => false, 'message' => "Update completed with no change."];
+            }
+            return ['success' => false, 'message' => 'Failed to update database.'];
+        }
 }
        
 
