@@ -260,7 +260,6 @@ class CRUD {
                 case 'login':
                     $result = $crud->login($_POST);
                     if($result['success']){
-                        echo "Debug About to Redirect...";
                         header("Location: ../../frontend/pages/home.php");
                         exit;
                     }

@@ -13,9 +13,10 @@
     <?php include "C:\\xampp\htdocs\Final Project PHPCSS\E-CommerceWebsite\backend\globals\header.php"; ?>
 
     <main>
-        <form action="login.php" method="post">
+        <form action="../../backend/CRUD/CRUD.php" method="post">
           <section id = "registrationForm">
             <h1> Sign In </h1>
+
             <input type="hidden" name="action" value="login">
 
             <label for="email">Email: </label>
