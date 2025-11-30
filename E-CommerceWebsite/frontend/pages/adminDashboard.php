@@ -1,18 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name= "description" content="Clothing. Mens. Womens. Workers. Work. Boots. Shoes. Sandals. Top. Bottom. Tops. Bottoms.">
-    <meta name="robots">
-    <link rel="stylesheet" href="../css/style.css"></link>
-    <title>E-Commerce Website</title>
+<?php
+session_start();
+if($_SESSION['role'] != 'admin') {
+    die('Access Denied.');
+}
+?>
 
-</head>
-<body>
-    <!-- Top section will display a welcome "#admin_id" -->
+<form action="CRUD.php" method="POST">
 
-    <!-- Next it will show a dedicated page with all the items, in descending order by ID, with edit and delete buttons. -->
+<label for="name">Product Name: </label>
+<input type=""text name="product_Name" required>
 
-    <!-- Thats it for this page. -->
-</body>
+<label for="price">Price: </label>
+<input type="number" name="product_Price" required>
+
+<label for="description">Description: </label>
+<textarea name="product_Description"></textarea>
+
+<label for="quantity">Left In Stock: </label>
+<input type="number" name="product_Quantity" required>
+
+<button type="submit"> Add Product </button>
+
+</form>
