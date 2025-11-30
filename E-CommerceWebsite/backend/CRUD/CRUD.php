@@ -23,12 +23,23 @@ class CRUD {
             $err['name'] = "Letters and white spaces only for Name.";
         }
 
-
-    if (empty($data['email'])) {
+        if (empty($data['email'])) {
             $err['email'] = "Email is requires";
-    } elseif(!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
-        $ERR['email'] = "This is not a valid email format.";
-    }
+        } elseif(!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
+        $err['email'] = "This is not a valid email format.";
+        }
+
+        if(empty($data['password'])) {
+            $err['password'] = "Password is required.";
+        } elseif(!preg_match("/[A-Za-z]+/d{5}/", $data['password'] )) {
+            $err['password'] = "Password must have atleast 5 digits.";
+        }
+
+        if(empty($data['repeatPassword'])) {
+            $err['repeatPassword'] = "Please repeat password.";
+        } elseif($data['repeatPassword'] != $data['password']) {
+            $err['repeatPassword'] = "Password does not match. Please try again.";
+        }
 
     return $err;
 }

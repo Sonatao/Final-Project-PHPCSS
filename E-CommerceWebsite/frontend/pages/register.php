@@ -12,9 +12,12 @@
 <body>
     <?php include "C:\\xampp\htdocs\Final Project PHPCSS\E-CommerceWebsite\backend\globals\header.php"; ?>
     <main>
-        <form action="register.php" method="post">
+        <form action="CRUD.php" method="post">
            <section id = "registrationForm">
             <h1> Registration </h1>
+
+            <label for="name">Name:</label>
+            <input type="text" placeholder="Enter Name" name="name" id="name" required>
 
             <label for="email">Email:</label>
             <input type="text" placeholder="Enter Email" name="email" id="email" required>
