@@ -1,5 +1,5 @@
 <?php 
-
+session_start();
 require_once(__DIR__ . "/config.php");
 // ^^^^^ Neccessary Imports Above Here ^^^^^
 
@@ -14,7 +14,7 @@ class CRUD {
 
     # Basic validation for the actual input from the registration and login formns for the name and email, and password. 
     public function dataValidation($data) {
-        echo "DataValidation Reached";
+        
         $err = [];
 
         if(empty($data['name'])) {
@@ -47,7 +47,7 @@ class CRUD {
 // ---------- Functions for Create, REGISTER, LOGIN, CREATEPRODCUT ----------
 // ----- Register Below ------
     public function register($data) {
-        echo "Registration Reached";
+        
         $validation_errors = $this->dataValidation($data);
         if(!empty($validation_errors)) {
             return ['success' => false, 'error' => $validation_errors];
@@ -291,10 +291,19 @@ class CRUD {
                 case 'login':
                     $result = $crud->login($_POST);
                     if($result['success']){
+                        if($_SESSION['role'] != 'admin') {
                         header("Location: ../../frontend/pages/home.php");
-                        exit;
-                    }
+                        }  else {
+                        header("Location: ../../frontend/pages/home.php");                
+                        }
+                    exit;
+                   }
+                   if($result != ['success']) {
+                    header("Location: ../../frontend/pages/login.php");
+                    exit;
+                   }
                     break;
+                     
                 default:
                     $result = ['success' => false, 'message' => 'What did you even do?'];
              }

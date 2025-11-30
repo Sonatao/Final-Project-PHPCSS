@@ -20,6 +20,9 @@
                 <a href="about.php">About Us</a>
                 <a href="register.php"> Register </a>
                 <a href="login.php"> Login </a>
+                <?php if(isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
+                    <a href="/Final Project PHPCSS/E-CommerceWebsite/frontend/pages/adminDashboard.php">AH</a>
+                    <?php endif; ?>
             </ul>
         </nav>
 
