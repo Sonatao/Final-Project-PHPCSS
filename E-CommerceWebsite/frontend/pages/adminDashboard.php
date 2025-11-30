@@ -18,6 +18,9 @@ if($_SESSION['role'] != 'admin') {
 <label for="description">Description: </label>
 <textarea name="product_Description"></textarea>
 
+<label for="product_Image">Product Image: </label>
+<input type="file" name="product_Image" accept=".jpg, .jpeg, .png" required>
+
 <label for="quantity">Left In Stock: </label>
 <input type="number" name="product_Quantity" required>
 

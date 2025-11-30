@@ -8,6 +8,7 @@ product_Name VARCHAR(255) NOT NULL,
 product_Price INT NOT NULL,
 product_Description VARCHAR(1000),
 product_Quantity INT Not NULL,
+product_Image 
 purchase_Date DATE,
 created_At TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 PRIMARY KEY (product_Id)

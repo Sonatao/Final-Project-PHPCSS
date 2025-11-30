@@ -1,4 +1,3 @@
-
 <?php
 # Canot do squat without this, it calls everything neccessary for the database to read, and return as well as populate the stuff well be doing ahead
 # within the actual php integration into the html.
@@ -38,7 +37,7 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </section>
 
         <section class = "shop">
-            <?PHP foreach ($prodcuts as $product): ?>
+            <?php foreach ($prodcuts as $product): ?>
                 <div class = "shopItems"> <!-- 5 Rows 3 Columns -->
                     <img src="<?php echo htmlspecialchars($product['product_Image']); ?>" alt="<?php echo htmlspecialchars($product['product_Name']); ?>" 
                     class = "productImage">
@@ -46,6 +45,7 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <h3 class = "itemName"><?php echo htmlspecialchars($product['product_Name']); ?></h3>
                     <div class = "productCardDivider"></div>
                     <p class = "itemPrice"><?php echo number_format($product['product_Price']); ?></p>
+                    <p class = "stock"><?php echo htmlspecialchars($product['product_Quantity']); ?></p>
                     
 
                     <div class = "productButtonGroup">
