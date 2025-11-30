@@ -6,7 +6,7 @@ if($_SESSION['role'] != 'admin') {
 ?>
 
 <!-- Create -->
-<form action="CRUD.php" method="POST">
+<form action="../../backend/CRUD/CRUD.php" method="POST" enctype="multipart/form-data">
 <input type="hidden" name="action" value="create">
 
 <label for="name">Product Name: </label>
@@ -28,7 +28,7 @@ if($_SESSION['role'] != 'admin') {
 
 
 <!-- Update. -->
-<form action="CRUD.php" method="POST">
+<form action="../../backend/CRUD/CRUD.php" method="POST">
 <input type="hidden" name="action" value="update">
 
 <label for="name">Product Name: </label>
@@ -46,7 +46,7 @@ if($_SESSION['role'] != 'admin') {
 <button type="submit"> Add Product </button>
 
 <!-- Delete -->
- <form action="CRUD.php" method="POST">
+ <form action="../../backend/CRUD/CRUD.php" method="POST">
 <input type="hidden" name="action" value="delete">
 
 <label for="name">Product Name: </label>

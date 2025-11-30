@@ -132,7 +132,7 @@ class CRUD {
             # This final parenthsis is beyond a great nuisance after purchase_Date.
                 $query = "INSERT INTO Products
                  (product_Name, product_Price, product_Description, product_Quantity, purchase_Date, product_Image)
-                VALUES (:name, :price, :description, :quantity, CURDATE(), :image";
+                VALUES (:name, :price, :description, :quantity, CURDATE(), :image)";
                 $stmt = $this->conn->prepare($query);
 
                 # Deep clean time.
@@ -151,22 +151,22 @@ class CRUD {
                     $fileType = mime_content_type($_FILES['product_Image']['tmp_name']);
                     $fileExt = strtolower(pathinfo($_FILES['product_Image']['name'], PATHINFO_EXTENSION));
 
-                    if(!in_array($fileType, $allowedTypes) || !in_array(($fileExt, ['jpg', 'jpeg', 'png']))) {
+                    if(!in_array($fileType, $allowedTypes) || !in_array($fileExt, ['jpg', 'jpeg', 'png'])) {
                         return['success' => false, 'message' => 'Invalid Image Type. Use only jpg, jpeg or png.'];
                     }
 
                     // Upload place, keep it in a variable so it isnt exposed if someone tries to follow the file path or smth like that.
                     $uploadDir = __DIR__ . "/../../assets(temp)";
                     if(!is_dir($uploadDir)) {
-                        mkdir($uploadDir, 077, true);
+                        mkdir($uploadDir, 0777, true);
                     }
 
                     // Create a unique file name, so as not to tear my hair out.
                     $fileName = uniqid("product_", true) . "." . $fileExt;
                     $targetFile = $uploadDir . $fileName;
 
-                    if(move_uploaded_file($_FILES['product_Image']['tmp_name', $targetFile])) {
-                        $imagePath = "/Final Project PHPCSS/E-CommerceWebsite/assets(temp)" . $fileName;
+                    if(move_uploaded_file($_FILES['product_Image']['tmp_name'] , $targetFile)) {
+                        $imagePath = "/Final Project PHPCSS/E-CommerceWebsite/assets(temp)/" . $fileName;
                     } else {
                         return['success' => false, 'message' => "The image upload failed."];
                     }

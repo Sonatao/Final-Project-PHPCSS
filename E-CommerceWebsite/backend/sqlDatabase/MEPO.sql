@@ -5,10 +5,10 @@ USE Commerce;
 CREATE TABLE IF NOT EXISTS Products (
 product_Id INT(10) NOT NULL AUTO_INCREMENT,
 product_Name VARCHAR(255) NOT NULL,
-product_Price INT NOT NULL,
+product_Price DECIMAL(10, 2) NOT NULL,
 product_Description VARCHAR(1000),
 product_Quantity INT Not NULL,
-product_Image 
+product_Image VARCHAR(255), 
 purchase_Date DATE,
 created_At TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 PRIMARY KEY (product_Id)
