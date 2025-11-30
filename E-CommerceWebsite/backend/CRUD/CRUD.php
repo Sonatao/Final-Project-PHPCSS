@@ -298,6 +298,7 @@ class CRUD {
                         }
                     exit;
                    }
+                   # This was just to check and see if the hash was the issue or not. 
                    if($result != ['success']) {
                     header("Location: ../../frontend/pages/login.php");
                     exit;
