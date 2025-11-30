@@ -6,13 +6,14 @@ require_once ("../config.php");
 
 // Create Stuff Below 
 class CRUD {
-    private $connl;
+    private $conn;
     private $table_name="form_data";
 
     public function __construct($db){
         $this->conn = $db;
     }
 
+    # Basic validation for the actual input from the registration and login formns for the name and email, and password. 
     public function dataValidation($data) {
         $err = [];
 
@@ -21,8 +22,7 @@ class CRUD {
         } elseif (!preg_match("/^[a-zA-Z-' ]*$/", $data['name'])) {
             $err['name'] = "Letters and white spaces only for Name.";
         }
-    }
-}
+
 
     if (empty($data['email'])) {
             $err['email'] = "Email is requires";
@@ -30,8 +30,39 @@ class CRUD {
         $ERR['email'] = "This is not a valid email format.";
     }
 
-    
+    return $err;
+}
+
+    public function create($data) {
+        $validation_errors = $this->dataValidation($data);
+        if(!empty($validation_errors)) {
+            return ['success' => false, 'errors' => $validation_errors];
+        }
+
+        # Prepared Statements first, for database security.
+
+        $query = "'INSERT INTO' . $this->table_name . SET name=:name, email=:email, password=:password";
+
+        $stmt = $this->conn->prepare($query);
 
 
+        # 2nd part of proccess, sanitization
 
-?>
+        $name = htmlspecialchars(strip_tags($data['name']));
+        $email = htmlspecialchars(strip_tags($data['email']));
+        $password = htmlspecialchars(strip_tags($data['password']));
+        
+        $stmt->bindParam(':name', $name);
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':password', $password);
+
+        if($stmt->execute()){
+            return ['success' => true, 'message' => 'Item Created Successfully'];
+            }
+        return ['success' => false, 'message' => 'Failed to create item.'];
+        }
+
+        # Now the skeleton for the Read Operation
+
+        
+
