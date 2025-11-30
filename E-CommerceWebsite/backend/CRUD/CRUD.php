@@ -44,14 +44,16 @@ class CRUD {
     return $err;
 }
 
+// ---------- Functions for Registration & Login ----------
+// ----- Register Below ------
     public function register($data) {
         $validation_errors = $this->dataValidation($data);
         if(!empty($validation_errors)) {
-            return ['success' => false, 'errors' => $validation_errors];
+            return ['success' => false, 'error' => $validation_errors];
         }
 
         # Prepared Statements first, for database security.
-        $query = "INSERT INTO . $this->table_name . SET name=:name, email=:email, password=:password";
+        $query = "INSERT INTO " . $this->table_name . "(user_Name, user_Email, user_Password, role) VALUES (:name, :email, :password, :role)";
         $stmt = $this->conn->prepare($query);
 
 
@@ -60,16 +62,21 @@ class CRUD {
         $name = htmlspecialchars(strip_tags($data['name']));
         $email = htmlspecialchars(strip_tags($data['email']));
         $password = password_hash($data['password'], PASSWORD_DEFAULT);
+        $role = isset($data['role']) ? $data['role'] : 'customer';
         
         $stmt->bindParam(':name', $name);
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':password', $password);
+        $stmt->bindParam(':role', $role);
 
         if($stmt->execute()){
-            return ['success' => true, 'message' => 'Item Created Successfully'];
+            return ['success' => true, 'message' => 'User Created Successfully'];
             }
-        return ['success' => false, 'message' => 'Failed to create item.'];
+        return ['success' => false, 'message' => 'Failed to create user.'];
         }
+
+
+// ------ Login Below ------
 
         public function login($data) {
             $err = [];
@@ -85,12 +92,12 @@ class CRUD {
             } 
 
             if(!empty($err)) {
-                return['success' => false, 'errors' => $err];
+                return['success' => false, 'error' => $err];
             }
 
             #Now we query the database for the user to see if they even exist etc.
 
-            $query = "SELECT id, name, email, password, role FROM " . $this->table_name . " WHERE email=:email LIMIT 1";
+            $query = "SELECT user_Id, user_Name, user_Email, user_Password, role FROM " . $this->table_name . " WHERE user_Email=:email LIMIT 1";
             $stmt = $this->conn->prepare($query);
             $stmt->bindParam(":email", $data['email']);
             $stmt->execute();
@@ -100,13 +107,14 @@ class CRUD {
             if($user) {
                 # Password work.
 
-                if (password_verify($data['password'], $user['password'])) {
+                if (password_verify($data['password'], $user['user_Password'])) {
                     session_start();
-                    $_SESSION['id'] = $user['id'];
-                    $_SESSION['name'] = $user['name'];
+                    $_SESSION['user_id'] = $user['user_Id'];
+                    $_SESSION['user_name'] = $user['user_Name'];
                     $_SESSION['role'] = $user['role'];
 
-                    return ['succcess' => true, 'message' => 'Login Successful'];
+                    # Added an extra C here and in testing it wouldnt bloody work TT
+                    return ['success' => true, 'message' => 'Login Successful'];
                 } else {
                     return['success' => false, 'error' => ['password' => 'Inccorect Password.']];
                 }
@@ -115,10 +123,15 @@ class CRUD {
             }
         }
 
+// ---------- ^^^^^^^ Registration and Login Complete ^^^^^^^^----------
+
+
+// ---------- Functions that use READ in CRUD Below ----------
+
         # Now the skeleton for the Read Operation
         public function readAll() {
             # Going to keep this basic, and just have it be read in order of ID, so it wont be variable or anything but it will show.
-             $query = "SELECT * FROM " . $this->table_name . " ORDER BY id DESC";
+             $query = "SELECT * FROM " . $this->table_name . " ORDER BY prodcut_Id DESC";
              $stmt = $this->conn->prepare($query);
              $stmt->execute();
 
@@ -137,6 +150,11 @@ class CRUD {
             
             return $row;
         }
+
+// ---------- ^^^^^^^ READ FUNCTION ABOVE ^^^^^^^^ ----------
+
+
+// ---------- Functions for uPDATING BELOW ----------
 
         public function update($id, $data) {
             $validation_errors = $this->dataValidation($data);
@@ -166,7 +184,10 @@ class CRUD {
             }
             return ['success' => false, 'message' => 'Failed to update database.'];
         }
+// ---------- ^^^^^^ Update Function Above ^^^^^^ ----------
 
+
+// ---------- Functions for Delete Below!  ----------
         public function delete($id) {
             $query = "DELETE FROM " . $this->table_name . " WHERE id = ?";
 
