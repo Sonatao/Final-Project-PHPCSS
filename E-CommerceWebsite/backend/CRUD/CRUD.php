@@ -1,7 +1,6 @@
 <?php 
 
-require_once ("../config.php");
-
+require_once(__DIR__ . "/config.php");
 // ^^^^^ Neccessary Imports Above Here ^^^^^
 
 // Create Stuff Below 
@@ -15,6 +14,7 @@ class CRUD {
 
     # Basic validation for the actual input from the registration and login formns for the name and email, and password. 
     public function dataValidation($data) {
+        echo "DataValidation Reached";
         $err = [];
 
         if(empty($data['name'])) {
@@ -31,7 +31,7 @@ class CRUD {
 
         if(empty($data['password'])) {
             $err['password'] = "Password is required.";
-        } elseif(!preg_match("/[A-Za-z]+/d{5}/", $data['password'] )) {
+        } elseif(strlen($data['password']) < 5) {
             $err['password'] = "Password must have atleast 5 digits.";
         }
 
@@ -47,6 +47,7 @@ class CRUD {
 // ---------- Functions for Create, REGISTER, LOGIN, CREATEPRODCUT ----------
 // ----- Register Below ------
     public function register($data) {
+        echo "Registration Reached";
         $validation_errors = $this->dataValidation($data);
         if(!empty($validation_errors)) {
             return ['success' => false, 'error' => $validation_errors];
@@ -124,12 +125,13 @@ class CRUD {
         } 
         
         public function createProduct($data) {
-            session_start();
+
             if($_SESSION['role'] != 'admin') {
                 return ['success' => false, 'message' => 'Access Denied.'];
                 }
-            
-                $query = "INSERT INTO Products (product_Name, product_Price, product_Description, product_Quantity, purchase_Date
+            # This final parenthsis is beyond a great nuisance after purchase_Date.
+                $query = "INSERT INTO Products
+                 (product_Name, product_Price, product_Description, product_Quantity, purchase_Date)
                 VALUES (:name, :price, :description, :quantity, CURDATE())";
                 $stmt = $this->conn->prepare($query);
 
@@ -151,7 +153,7 @@ class CRUD {
                 return['success' => false, 'message' => 'Product failed to create. Seek technician.'];
             }
 
-// ---------- ^^^^^^^ Registration and Login Complete ^^^^^^^^----------
+// ---------- ^^^^^^^ Registration, Login, CreateProduct Complete. ^^^^^^^^----------
 
 
 // ---------- Functions that use READ in CRUD Below ----------
@@ -230,22 +232,46 @@ class CRUD {
             return ['success' => false, 'message' => 'Product not found or already deleted.'];
         }
 }
-    // ----------------- Temporary Controller for From Submissions from Admin Dashboard -------------------------   
-    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    // ----------------- Temporary Controller for From Submissions  -------------------------   
+    if($_SERVER['REQUEST_METHOD'] === 'POST'){
+        require_once(__DIR__ . "/config.php");
+        $database = new Database();
+        $db = $database->getConnection();
         $crud = new CRUD($db);
 
-        switch ($_POST['action']) {
-            case 'create':
-                $result = $crud->createProduct($_POST);
-                break;
-            case 'update':
-                $result = $crud->updateProduct($_POST);
-                break;
-            case 'delete':
-                $result = $crud->deleteProduct($_POST);
-                break;
+        if(isset($_POST['action'])) {
+            switch ($_POST['action']) {
+                case 'create':
+                    $result = $crud->createProduct($_POST);
+                    break;
+                case 'update':
+                    $result = $crud->updateProduct($_POST);
+                    break;
+                case 'delete':
+                    $result = $crud->deleteProduct($_POST);
+                    break;
+                case 'register':
+                    $result = $crud->register($_POST);
+                    if($result['success']) {
+                        header("Location: ../../frontend/pages/login.php");
+                        exit;
+                    }
+                    break;
+                case 'login':
+                    $result = $crud->login($_POST);
+                    if($result['success']){
+                        echo "Debug About to Redirect...";
+                        header("Location: ../../frontend/pages/home.php");
+                        exit;
+                    }
+                    break;
+                default:
+                    $result = ['success' => false, 'message' => 'What did you even do?'];
+             }
+             echo $result['message'];
         }
-        echo $result['message'];
+        
     }
 
+    
 
