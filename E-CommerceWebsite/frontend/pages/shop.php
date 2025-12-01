@@ -27,7 +27,7 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 </head>
 <body>
-   <?php include "C:\\xampp\htdocs\Final Project PHPCSS\E-CommerceWebsite\backend\globals\header.php"; ?>
+   <?php include "../../backend/globals/header.php"; ?>
     <main>
         <section class = "shopBanner">
             <h1> Spooktober Flash Sale! </h1>
@@ -37,21 +37,21 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </section>
 
         <section class = "shop">
-            <?php foreach ($prodcuts as $product): ?>
+            <?php foreach ($products as $product): ?>
                 <div class = "shopItems"> <!-- 5 Rows 3 Columns -->
                     <img src="<?php echo htmlspecialchars($product['product_Image']); ?>" alt="<?php echo htmlspecialchars($product['product_Name']); ?>" 
                     class = "productImage">
                     <p class="itemType"><?php echo htmlspecialchars($product['product_Description']); ?> </p>
                     <h3 class = "itemName"><?php echo htmlspecialchars($product['product_Name']); ?></h3>
                     <div class = "productCardDivider"></div>
-                    <p class = "itemPrice"><?php echo number_format($product['product_Price']); ?></p>
-                    <p class = "stock"><?php echo htmlspecialchars($product['product_Quantity']); ?></p>
+                    <p class = "itemPrice">$<?php echo number_format($product['product_Price'], 2); ?></p>
+                    <p class = "stock">Left In Stock: <?php echo htmlspecialchars($product['product_Quantity']); ?></p>
                     
 
                     <div class = "productButtonGroup">
-                     <button type="button" > View </button>
-                     <button type="button" > Add To Cart </button>
-                     <button type="button" > Favorite </button>   
+                     <button type="button"  > <a href="dedicatedView.php">View</a></button>
+                     <button type="button" > <a href="">Add To Cart </a></button>
+                     <button type="button" > <a href="">Favorite </a></button>   
                     </div>
                 </div> 
                 <?php endforeach; ?>
@@ -59,6 +59,6 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 
     </main>
-        <?php include "C:\\xampp\htdocs\Final Project PHPCSS\E-CommerceWebsite\backend\globals\\footer.php" ?>
+        <?php include "../../backend/globals/footer.php" ?>
 </body>
 </html>

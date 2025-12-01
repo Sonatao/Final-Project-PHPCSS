@@ -163,7 +163,7 @@ class CRUD {
 
                     // Create a unique file name, so as not to tear my hair out.
                     $fileName = uniqid("product_", true) . "." . $fileExt;
-                    $targetFile = $uploadDir . $fileName;
+                    $targetFile = $uploadDir . "/" . $fileName;
 
                     if(move_uploaded_file($_FILES['product_Image']['tmp_name'] , $targetFile)) {
                         $imagePath = "/Final Project PHPCSS/E-CommerceWebsite/assets(temp)/" . $fileName;
@@ -217,7 +217,7 @@ class CRUD {
 
 // ---------- Functions for uPDATING BELOW ----------
 
-        public function update($id, $data) {
+        public function updateProduct($id, $data) {
             $validation_errors = $this->dataValidation($data);
             if(!empty($validation_errors)){
                 return ['success' => false, 'errors' => $validation_errors];
@@ -249,7 +249,7 @@ class CRUD {
 
 
 // ---------- Functions for Delete Below!  ----------
-        public function delete($id) {
+        public function deleteProduct($id) {
             $query = "DELETE FROM " . $this->table_name . " WHERE id = ?";
 
             $stmt = $this->conn->prepare($query);
@@ -276,7 +276,7 @@ class CRUD {
                     $result = $crud->createProduct($_POST);
                     break;
                 case 'update':
-                    $result = $crud->updateProduct($_POST);
+                    $result = $crud->updateProduct($_POST, $data);
                     break;
                 case 'delete':
                     $result = $crud->deleteProduct($_POST);

@@ -4,9 +4,12 @@ if($_SESSION['role'] != 'admin') {
     die('Access Denied.');
 }
 ?>
+<link rel="stylesheet" href="../css/style.css"></link>
+<?php include "../../backend/globals/header.php"; ?>
 
 <!-- Create -->
-<form action="../../backend/CRUD/CRUD.php" method="POST" enctype="multipart/form-data">
+ <section class = "createProduct">
+    <form action="../../backend/CRUD/CRUD.php" method="POST" enctype="multipart/form-data">
 <input type="hidden" name="action" value="create">
 
 <label for="name">Product Name: </label>
@@ -25,10 +28,13 @@ if($_SESSION['role'] != 'admin') {
 <input type="number" name="product_Quantity" required>
 
 <button type="submit"> Add Product </button>
+</form>
+ </section>
 
 
 <!-- Update. -->
-<form action="../../backend/CRUD/CRUD.php" method="POST">
+ <section class="updateProduct">
+    <form action="../../backend/CRUD/CRUD.php" method="POST">
 <input type="hidden" name="action" value="update">
 
 <label for="name">Product Name: </label>
@@ -44,9 +50,13 @@ if($_SESSION['role'] != 'admin') {
 <input type="number" name="product_Quantity" required>
 
 <button type="submit"> Add Product </button>
+</form>
+ </section>
+
 
 <!-- Delete -->
- <form action="../../backend/CRUD/CRUD.php" method="POST">
+ <section class = "deleteProduct">
+    <form action="../../backend/CRUD/CRUD.php" method="POST">
 <input type="hidden" name="action" value="delete">
 
 <label for="name">Product Name: </label>
@@ -62,5 +72,8 @@ if($_SESSION['role'] != 'admin') {
 <input type="number" name="product_Quantity" required>
 
 <button type="submit"> Add Product </button>
-
 </form>
+ </section>
+ 
+
+<?php include "../../backend/globals/footer.php" ?>
