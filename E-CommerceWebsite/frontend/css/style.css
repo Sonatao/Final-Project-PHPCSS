@@ -788,7 +788,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  
+  flex-direction: column;
  }
 
  input[type=text], input[type=password] {
@@ -846,4 +846,13 @@ footer {
 #signInRedirect > p > a:hover {
   color: var(--focusColorLight);
   text-decoration: underline;
+}
+
+
+/* ---------------------- AdminDashboard ------------------------- */
+
+.createForm {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }

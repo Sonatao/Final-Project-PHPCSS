@@ -9,7 +9,7 @@ if($_SESSION['role'] != 'admin') {
 
 <!-- Create -->
  <section class = "createProduct">
-    <form action="../../backend/CRUD/CRUD.php" method="POST" enctype="multipart/form-data">
+    <form class= "createForm" action="../../backend/CRUD/CRUD.php" method="POST" enctype="multipart/form-data">
 <input type="hidden" name="action" value="create">
 
 <label for="name">Product Name: </label>
@@ -49,7 +49,10 @@ if($_SESSION['role'] != 'admin') {
 <label for="quantity">Left In Stock: </label>
 <input type="number" name="product_Quantity" required>
 
-<button type="submit"> Add Product </button>
+<label for="product_Id">Product ID:</label>
+<input type="number" name="product_Id" required>
+
+<button type="submit"> Update Product </button>
 </form>
  </section>
 
@@ -62,16 +65,10 @@ if($_SESSION['role'] != 'admin') {
 <label for="name">Product Name: </label>
 <input type="text" name="product_Name" required>
 
-<label for="price">Price: </label>
-<input type="number" name="product_Price" required>
+<label for="product_Id">Product ID:</label>
+<input type="number" name="product_Id" required>
 
-<label for="description">Description: </label>
-<textarea name="product_Description"></textarea>
-
-<label for="quantity">Left In Stock: </label>
-<input type="number" name="product_Quantity" required>
-
-<button type="submit"> Add Product </button>
+<button type="submit"> Delete Product </button>
 </form>
  </section>
  

@@ -178,10 +178,14 @@ class CRUD {
                 $stmt->bindParam(':description', $description);
                 $stmt->bindParam(':image', $imagePath);
 
-                if($stmt->execute()){
+                if($stmt->execute()){ 
+                    header("Location: ../../frontend/pages/adminDashboard.php"); 
                     return['success' => true, 'message' => 'Product created.'];
-                }
+                    
+                } 
+
                 return['success' => false, 'message' => 'Product failed to create. Seek technician.'];
+                
             }
 
 // ---------- ^^^^^^^ Registration, Login, CreateProduct Complete. ^^^^^^^^----------
@@ -192,7 +196,7 @@ class CRUD {
         # Now the skeleton for the Read Operation
         public function readAll() {
             # Going to keep this basic, and just have it be read in order of ID, so it wont be variable or anything but it will show.
-             $query = "SELECT * FROM " . $this->table_name . " ORDER BY prodcut_Id DESC";
+             $query = "SELECT * FROM " .  " Products " . " ORDER BY product_Id DESC";
              $stmt = $this->conn->prepare($query);
              $stmt->execute();
 
@@ -201,7 +205,7 @@ class CRUD {
 
         #Preps for the Update function.
         public function readOne($id) {
-            $query = "SELECT * FROM" . $this->table_name . "WHERE id = ?";
+            $query = "SELECT * FROM" . " Products " . "WHERE product_Id = ?";
             $stmt = $this->conn->prepare($query);
 
             $stmt->bindParam(1, $id);
@@ -218,23 +222,28 @@ class CRUD {
 // ---------- Functions for uPDATING BELOW ----------
 
         public function updateProduct($id, $data) {
-            $validation_errors = $this->dataValidation($data);
-            if(!empty($validation_errors)){
-                return ['success' => false, 'errors' => $validation_errors];
+            if($_SESSION['role'] != 'admin') {
+                return['success' => false, 'message' => 'Access Denied.'];
             }
 
-            $query = " UPDATE " . $this->table_name . " SET name=:name, email=:email WHERE id = :id";
+            if(empty($id)) {
+                return['success' => false, 'message' => 'Product Id required.'];
+            }
+
+            $query = " UPDATE Products SET product_Name=:name, product_Price= :price, product_Quantity = :quantity, product_Description = :description WHERE product_Id = :id";
 
             $stmt = $this->conn->prepare($query);
 
-            $name = htmlspecialchars(strip_tags($data['name']));
-            $email = htmlspecialchars(strip_tags($data['email']));
-            $description = htmlspecialchars(strip_tags($data['description']));
+            $name = htmlspecialchars(strip_tags($data['product_Name']));
+            $price = htmlspecialchars(strip_tags($data['product_Price']));
+            $description = htmlspecialchars(strip_tags($data['product_Description']));
+            $quantity = htmlspecialchars(strip_tags($data['product_Quantity']));
 
-            $stmt->bindParam(':id', $id);
+            $stmt->bindParam(':id', $id, PDO::PARAM_INT);
             $stmt->bindParam(':name', $name);
-            $stmt->bindParam(':email', $email);
+            $stmt->bindParam(':price', $price);
             $stmt->bindParam(':description', $description);
+            $stmt->bindParam(':quantity', $quantity);
 
             if($stmt->execute()) {
 
@@ -250,7 +259,7 @@ class CRUD {
 
 // ---------- Functions for Delete Below!  ----------
         public function deleteProduct($id) {
-            $query = "DELETE FROM " . $this->table_name . " WHERE id = ?";
+            $query = "DELETE FROM Products WHERE product_Id = ?";
 
             $stmt = $this->conn->prepare($query);
 
@@ -258,10 +267,12 @@ class CRUD {
             $stmt->bindParam(1, $sanitziedId);
 
             if($stmt->execute()) {
-                return ['success' => true, 'message' => 'Product deleted.'];
+                if($stmt->rowCount() > 0) {
+                 return ['success' => true, 'message' => 'Product deleted.'];
             }
-            return ['success' => false, 'message' => 'Product not found or already deleted.'];
-        }
+                return ['success' => false, 'message' => 'Product not found or already deleted.'];
+          }  
+    }
 }
     // ----------------- Temporary Controller for From Submissions  -------------------------   
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
@@ -273,13 +284,27 @@ class CRUD {
         if(isset($_POST['action'])) {
             switch ($_POST['action']) {
                 case 'create':
-                    $result = $crud->createProduct($_POST);
+                    if($_SESSION['role'] === 'admin') {
+                           $result = $crud->createProduct($_POST);
+                           header("Location: ../../frontend/pages/adminDashboard.php");
+                           exit;
+                    }        
                     break;
                 case 'update':
-                    $result = $crud->updateProduct($_POST, $data);
+                    if($_SESSION['role'] === 'admin') {
+                          $id = $_POST['product_Id'] ?? null;
+                    $result = $crud->updateProduct($id, $_POST);
+                    header("Location: ../../frontend/pages/adminDashboard.php");
+                    exit;
+                    }
                     break;
                 case 'delete':
-                    $result = $crud->deleteProduct($_POST);
+                    if($_SESSION['role'] === 'admin'){
+                        $id = $_POST['product_Id'] ?? null;
+                        $result = $crud->deleteProduct($id);
+                        header("Location: ../../frontend/pages/adminDashboard.php");
+                        exit;
+                    }
                     break;
                 case 'register':
                     $result = $crud->register($_POST);
@@ -308,10 +333,7 @@ class CRUD {
                 default:
                     $result = ['success' => false, 'message' => 'What did you even do?'];
              }
-             echo $result['message'];
+             echo $result['message'] ?? implode(", ", $result['errors'] ?? []);
         }
         
     }
-
-    
-
