@@ -49,7 +49,7 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     
 
                     <div class = "productButtonGroup">
-                     <button type="button"  > <a href="dedicatedView.php">View</a></button>
+                     <button type="button"  > <a href="dedicatedView.php?id=<?php echo $product['product_Id']; ?>">View</a></button>
                      <button type="button" > <a href="">Add To Cart </a></button>
                      <button type="button" > <a href="">Favorite </a></button>   
                     </div>

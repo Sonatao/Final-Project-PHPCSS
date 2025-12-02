@@ -73,6 +73,10 @@ a {
     text-decoration: none;
 }
 
+main {
+  flex: 1;
+}
+
 
 /* 
 -------------- Header Styling --------------
@@ -851,8 +855,195 @@ footer {
 
 /* ---------------------- AdminDashboard ------------------------- */
 
-.createForm {
+.adminDashboard {
+  max-width: 75%;
+  margin: auto;
+  padding: (var(--padMd));
+  background-color: var(--bgColorDark);
+  color: var(--textColor);
+  font-family: var(--strictFont);
+}
+
+.createProduct, .updateProduct, .deleteProduct {
+  margin-bottom: var(--marMd);
+  padding: var(--padSm);
+  background-color: var(--bgColorLight);
+  border-radius: 1rem;
+  box-shadow:  0 0 0 0.5rem var(--boxShadow);
+}
+
+.createProduct h2, .updateProduct h2, .deleteProduct h2 {
+  font-family: var(--fancyFont);
+  font-size: var(--fontLr);
+  margin-bottom: var(--marSm);
+  text-align: center;
+  letter-spacing: 0.2rem;
+}
+
+.createProduct form .updateProduct form, .deleteProduct form {
+display: flex;
+flex-direction: column;
+gap: var(--padSm);
+height: 40%;
+width: 100%;
+
+}
+
+/* After some back and forth, I dislike this new style but ill keep its remains here  */
+
+/* .createForm input, .updateProduct input, .deleteProduct input, .createForm textarea, .updateProduct textarea {
+  padding: var(--padSm);
+  border:  1px solid var(--bgColorVeryLight);
+  border-radius: 0.5rem;
+  background-color: var(--formInside);
+  color: black;
+  font-size: var(--fontMd);
+} */
+
+.createProduct {
+  border-left:  5px solid var(--focusColorLight);
+}
+
+.updateProduct {
+  border-left: 5px solid var(--focusColorDark);
+}
+
+.deleteProduct {
+  border-left:  5px solid crimson;
+}
+
+/* ----------------- Single Product View Page --------------------- */
+
+/* ---------------------- Dedicated Product View Styling ------------------------- */
+
+.shopSingle {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  
+  background-color: var(--bgColorDark);
+  color: var(--textColor);
+  font-family: var(--strictFont);
+  height: 100vh;
+}
+
+.productImageSingle {
+
+  width: 100%;
+  height: auto;
+
   display: flex;
   justify-content: center;
+  align-items: center;
+  
+
+  padding: 0;
+  margin: 0;
+
+  background: none;
+ 
+}
+
+
+/* I found some really funny combination right here, and had a blast towards the end messing with the image, god bless  */
+.productImageSingle > img {
+
+  width:auto;
+  height: 100%;
+
+  max-height: 60vh;
+  align-items: center;
+  object-fit: contain;
+
+
+  border-radius: 1rem;
+  box-shadow: 0 0 0.5rem var(--boxShadow);
+  background-color: var(--bgColorLight); 
+ 
+
+}
+
+
+.productDetails {
+
+  display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+
+  max-height: 100%;
+  max-width: 100%;
+  
+  aspect-ratio: 1/1;
+  background-color: var(--bgColorLight);
+  border-radius: 1rem;
+  box-shadow: 0 0 0.5rem var(--boxShadow);
+}
+
+.itemNameSingle {
+  font-size: var(--fontLr);
+  color: var(--focusColorLight);
+  font-family: var(--fancyFont);
+  letter-spacing: 0.1rem;
+}
+
+.itemDescription {
+  font-size: var(--fontMd);
+  font-family: var(--normalFont);
+  color: var(--textColor);
+  line-height: 1.6;
+}
+
+.productCardDivider {
+  width: 60%;
+  height: 0.1rem;
+  background-color: var(--bgColorVeryLight);
+  box-shadow: 0 0 0.2rem var(--boxShadow);
+  margin: var(--padSm) 0;
+}
+
+.itemPriceSingle {
+  font-size: 1.5rem;
+  color: var(--focusColorDark);
+  font-weight: bold;
+}
+
+.stockSingle {
+  font-size: var(--fontMd);
+  color: var(--bgColorVeryLight);
+}
+
+.productButtonGroupSingle {
+  display: flex;
+  flex-direction: row;
+  gap: var(--padSm);
+  margin-top: var(--padSm);
+}
+
+.productButtonGroupSingle button {
+
+  background-color: var(--btnBgColor);
+  color: var(--btnColorHover);
+  padding: var(--padSm);
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-family: var(--strictFont);
+  transition: 0.3s ease;
+ 
+}
+
+.productButtonGroupSingle button:hover {
+  background-color: var(--focusColorLight);
+  color: var(--btnTextHover);
+}
+
+.pageWrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.pageWrapper main {
+  flex: 1;
 }
