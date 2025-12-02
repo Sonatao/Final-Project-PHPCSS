@@ -10,7 +10,7 @@
 
 </head>
 <body>
-    <?php include "C:\\xampp\htdocs\Final Project PHPCSS\E-CommerceWebsite\backend\globals\header.php"; ?>
+       <?php include "../../backend/globals/header.php"; ?>
 
     <main>
         <form action="../../backend/CRUD/CRUD.php" method="post">
@@ -36,7 +36,7 @@
         </form>
     </main>
 
-        <?php include "C:\\xampp\htdocs\Final Project PHPCSS\E-CommerceWebsite\backend\globals\\footer.php" ?>
+        <?php include "../../backend/globals/footer.php" ?>
 
 
 </body>

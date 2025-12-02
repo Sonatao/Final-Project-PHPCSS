@@ -1,15 +1,19 @@
 <?php
-if(session_status() === PHP_SESSION_NONE) {
-    session_start();
-} else {
-    if($_SESSION['role'] != 'admin') {
-    die('Access Denied.');
-}
-}
-
 
 require_once("../../backend/CRUD/config.php");
 require_once("../../backend/CRUD/CRUD.php");
+
+if(session_status() === PHP_SESSION_NONE) {
+    session_start();
+} 
+    
+if($_SESSION['role'] != 'admin') {
+    die('Access Denied.');
+}
+
+
+
+
 
 $database = new Database();
 $db = $database->getConnection();

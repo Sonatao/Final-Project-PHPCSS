@@ -10,8 +10,8 @@
 
 </head>
 <body>
-    <?php include "C:\\xampp\htdocs\Final Project PHPCSS\E-CommerceWebsite\backend\globals\header.php"; ?>
-    <main>
+   <?php include "../../backend/globals/header.php"; ?>    
+   <main>
         <section class = "aboutUsMast">
             <h2> The Home of Spooks and Specters </h2>
             <h4> Since 1892 </h4>
@@ -25,9 +25,6 @@
                     eum fugiat consectetur praesentium eius provident.</p>
             </section>     
     </main>
-
-        <?php include "C:\\xampp\htdocs\Final Project PHPCSS\E-CommerceWebsite\backend\globals\\footer.php" ?>
-
-
+        <?php include "../../backend/globals/footer.php" ?>
 </body>
 </html>

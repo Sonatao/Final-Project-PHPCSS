@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Story+Script&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css"></link>
     <script src="/Final Project PHPCSS/E-CommerceWebsite/frontend/jsAnimations/heroCarousel.js" defer></script>
-    <?php include "C:\\xampp\htdocs\Final Project PHPCSS\E-CommerceWebsite\backend\globals\header.php"; ?>
+       <?php include "../../backend/globals/header.php"; ?>
     
     <title>E-Commerce Website</title>
 
@@ -207,6 +207,6 @@
     </main>
 
     
-<?php include "C:\\xampp\htdocs\Final Project PHPCSS\E-CommerceWebsite\backend\globals\\footer.php" ?>
+        <?php include "../../backend/globals/footer.php" ?>
 </body>
 </html>
