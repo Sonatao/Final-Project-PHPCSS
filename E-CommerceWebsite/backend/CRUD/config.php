@@ -4,7 +4,7 @@ class Database {
     private $host = 'localhost';
     private $db_name = 'Commerce';
     private $username = 'root';
-    private $password = '12345678';
+    private $password = '';
     public $conn;
 public function getConnection() {
     $this->conn = null;
