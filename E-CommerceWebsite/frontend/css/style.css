@@ -240,7 +240,7 @@ footer {
     .heroSlides {
         display: none;
         width: 100%;
-        height: 80.3821vh;
+        height: 100vh;
         
       }
 
@@ -351,7 +351,7 @@ footer {
         
     }
 
-    .heroDots {
+    /* .heroDots {
       text-align: center;
       position: absolute;
         top: 50rem;
@@ -359,7 +359,7 @@ footer {
         z-index: 10;
         gap: 1rem;
       
-    }
+    } */
 
     .fade {
         animation-name: fade;
@@ -445,10 +445,11 @@ footer {
     .homeShop {
       background-color: var(--bgColorDark);
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       grid-template-rows: repeat(2, 1fr);
-      /* gap: 3rem; */
+      gap: 3rem;
       padding: 0rem 10rem 1rem 10rem;
+
     }
 
     .shopItems {
@@ -464,7 +465,7 @@ footer {
       
 
       display: flex;
-      justify-content: center;
+justify-content: center;
       align-items: center;
       flex-direction: column;
       flex-wrap: wrap;

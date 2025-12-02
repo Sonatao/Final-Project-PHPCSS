@@ -11,11 +11,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Story+Script&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css"></link>
     <script src="/Final Project PHPCSS/E-CommerceWebsite/frontend/jsAnimations/heroCarousel.js" defer></script>
-       <?php include "../../backend/globals/header.php"; ?>
+       
     
     <title>E-Commerce Website</title>
 
 </head>
+<?php include "../../backend/globals/header.php"; ?>
 <body>
     <!-- Escape characters are a trial by fire, im glad I remembered regex, the \xammp was not reading as \xamp but just mmp, used a \\ double and it worked. -->
     
@@ -59,11 +60,11 @@
                 <a class = "next" onclick="advanceSlides(1)">&#10095;</a>
         </section>
 
-        <div class = "heroDots">
+        <!-- <div class = "heroDots">
             <span class="slideDot" onclick="currentSlide(1)"></span>
             <span class="slideDot" onclick="currentSlide(2)"></span>
             <span class="slideDot" onclick="currentSlide(3)"></span>
-        </div>
+        </div> -->
 
         <section id="homeShopContainer">
             <section class = "headingContainer">
