@@ -901,20 +901,113 @@ width: 100%;
 } */
 
 .createProduct {
-  border-left:  5px solid var(--focusColorLight);
+  margin-top: 2rem;
+
+  border-right: 5px solid rgb(221, 147, 9);
+  border-left: 5px solid rgb(221, 147, 9);
 }
 
 .updateProduct {
   border-left: 5px solid var(--focusColorDark);
+
 }
 
 .deleteProduct {
   border-left:  5px solid crimson;
 }
 
-/* ----------------- Single Product View Page --------------------- */
+/* I have no idea why this took so bloody long */
+.adminProductView {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
 
-/* ---------------------- Dedicated Product View Styling ------------------------- */
+  gap: 5rem;
+  padding-bottom: var(--padMd);
+  padding-top: var(--padMd);
+
+  border-top: 5px solid var(--focusColorLight);
+  border-radius: 1rem;
+  box-shadow: 0 0 0.5rem var(--boxShadow);
+  background-color: var(--bgColorLight); 
+  
+}
+
+/* This has similarily taken the lions share of the time, the writing of the modal piece for the forms so on click it pops up. */
+.popupHidden { display: none; }
+.popupVisible {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popupHidden {
+  display: none;
+}
+
+.popupVisible {
+  position: fixed;
+  inset: 0; 
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.updateProduct {
+display: flex;
+align-items: center;
+margin-top: 3.5rem;
+
+  background-color: var(--bgColorLight);
+  padding: var(--padMd);
+  border-radius: 1rem;
+  box-shadow: 0 0 1rem var(--boxShadow);
+  width: 100%;
+  max-width: 40%;
+
+  height: 100%;
+  max-height: 90%;
+}
+
+.createProduct {
+  display: flex;
+align-items: center;
+margin-top: 3.5rem;
+
+  background-color: var(--bgColorLight);
+  padding: var(--padMd);
+  border-radius: 1rem;
+  box-shadow: 0 0 1rem var(--boxShadow);
+  width: 100%;
+  max-width: 40%;
+
+  height: 100%;
+  max-height: 90%;
+}
+
+.deleteProduct {
+  display: flex;
+align-items: center;
+margin-top: 3.5rem;
+
+  background-color: var(--bgColorLight);
+  padding: var(--padMd);
+  border-radius: 1rem;
+  box-shadow: 0 0 1rem var(--boxShadow);
+  width: 100%;
+  max-width: 40%;
+
+  height: 100%;
+  max-height: 90%;
+}
+/* ----------------- Single Product View Page --------------------- */
 
 .shopSingle {
   display: grid;
